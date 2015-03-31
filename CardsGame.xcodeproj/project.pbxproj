@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */; };
+		D1D313A31ACAE78F0006C24E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D313A21ACAE78F0006C24E /* Constants.m */; };
 		D1E6754C1AC949EC002E79C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754B1AC949EC002E79C0 /* Foundation.framework */; };
 		D1E6754E1AC949EC002E79C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */; };
 		D1E675501AC949EC002E79C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754F1AC949EC002E79C0 /* UIKit.framework */; };
@@ -15,7 +17,6 @@
 		D1E6755C1AC949EC002E79C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E6755B1AC949EC002E79C0 /* AppDelegate.m */; };
 		D1E6755F1AC949EC002E79C0 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1E6755D1AC949EC002E79C0 /* Main_iPhone.storyboard */; };
 		D1E675621AC949EC002E79C0 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1E675601AC949EC002E79C0 /* Main_iPad.storyboard */; };
-		D1E675651AC949EC002E79C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E675641AC949EC002E79C0 /* ViewController.m */; };
 		D1E675671AC949EC002E79C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1E675661AC949EC002E79C0 /* Images.xcassets */; };
 		D1E6756E1AC949EC002E79C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6756D1AC949EC002E79C0 /* XCTest.framework */; };
 		D1E6756F1AC949EC002E79C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754B1AC949EC002E79C0 /* Foundation.framework */; };
@@ -35,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1D3139E1ACAE2300006C24E /* LoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterViewController.h; sourceTree = "<group>"; };
+		D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterViewController.m; sourceTree = "<group>"; };
+		D1D313A11ACAE78F0006C24E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		D1D313A21ACAE78F0006C24E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D1E675481AC949EC002E79C0 /* CardsGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1E6754B1AC949EC002E79C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,8 +52,6 @@
 		D1E6755B1AC949EC002E79C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D1E6755E1AC949EC002E79C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		D1E675611AC949EC002E79C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		D1E675631AC949EC002E79C0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D1E675641AC949EC002E79C0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D1E675661AC949EC002E79C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D1E6756C1AC949EC002E79C0 /* CardsGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardsGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1E6756D1AC949EC002E79C0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -84,6 +87,8 @@
 		D1E6753F1AC949EB002E79C0 = {
 			isa = PBXGroup;
 			children = (
+				D1D313A11ACAE78F0006C24E /* Constants.h */,
+				D1D313A21ACAE78F0006C24E /* Constants.m */,
 				D1E675511AC949EC002E79C0 /* CardsGame */,
 				D1E675731AC949EC002E79C0 /* CardsGameTests */,
 				D1E6754A1AC949EC002E79C0 /* Frameworks */,
@@ -118,10 +123,10 @@
 				D1E6755B1AC949EC002E79C0 /* AppDelegate.m */,
 				D1E6755D1AC949EC002E79C0 /* Main_iPhone.storyboard */,
 				D1E675601AC949EC002E79C0 /* Main_iPad.storyboard */,
-				D1E675631AC949EC002E79C0 /* ViewController.h */,
-				D1E675641AC949EC002E79C0 /* ViewController.m */,
 				D1E675661AC949EC002E79C0 /* Images.xcassets */,
 				D1E675521AC949EC002E79C0 /* Supporting Files */,
+				D1D3139E1ACAE2300006C24E /* LoginRegisterViewController.h */,
+				D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */,
 			);
 			path = CardsGame;
 			sourceTree = "<group>";
@@ -253,9 +258,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1E675651AC949EC002E79C0 /* ViewController.m in Sources */,
+				D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */,
 				D1E6755C1AC949EC002E79C0 /* AppDelegate.m in Sources */,
 				D1E675581AC949EC002E79C0 /* main.m in Sources */,
+				D1D313A31ACAE78F0006C24E /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +480,7 @@
 				D1E6757F1AC949EC002E79C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1E675801AC949EC002E79C0 /* Build configuration list for PBXNativeTarget "CardsGameTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +489,7 @@
 				D1E675821AC949EC002E79C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
