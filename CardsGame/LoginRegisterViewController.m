@@ -7,6 +7,7 @@
 //
 
 #import "LoginRegisterViewController.h"
+#import "EditProfileViewController.h"
 #import "Constants.h"
 
 static const int USERNAME_MIN_LENGTH = 4;
@@ -15,17 +16,7 @@ static const int PASSWORD_MIN_LENGTH = 6;
 static const NSString* ERROR_USERNAME_MIN_LENGTH = @"Minimum length for username is 4 characters";
 static const NSString* ERROR_PASSWORD_MIN_LENGTH = @"Minimum length for password is 6 characters";
 
-static const NSString* PARAMETER_USERNAME = @"username";
-static const NSString* PARAMETER_PASSWORD = @"password";
-static const NSString* PARAMETER_REGISTER = @"register";
-
 static const NSString* REGISTER_TRUE = @"true";
-
-static const NSString* PROPERY_STATUS = @"Status";
-static const NSString* PROPERY_MESSAGE = @"Message";
-
-static const NSString* STATUS_SUCESS = @"Success";
-static const NSString* STATUS_FAILING = @"Failure";
 
 @interface LoginRegisterViewController ()
 
@@ -33,41 +24,60 @@ static const NSString* STATUS_FAILING = @"Failure";
 
 @implementation LoginRegisterViewController
 
-@synthesize textField_username, textField_password, label_usernameErrors, label_passwordErrors;
+@synthesize imageView, textField_username, textField_password, label_usernameErrors, label_passwordErrors;
 
 -(void)login:(id)sender {
     if ([self validate]) {
         NSString* request = [self addParameters];
         NSDictionary* dictionary = [self sendRequest:request];
         
-        NSString* status = [dictionary objectForKey:PROPERY_STATUS];
-        NSString* message = [dictionary objectForKey:PROPERY_MESSAGE];
+        NSString* status = [dictionary objectForKey:[Constants getStatusProperty]];
+        NSString* message = [dictionary objectForKey:[Constants getMessageProperty]];
+        
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
         
         printf("---------------------------------------\n");
         printf("Status:%s\n", [status UTF8String]);
         printf("Message:%s\n", [message UTF8String]);
+        
+        if ([status isEqualToString:[Constants getSuccessStatus]]) {
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:textField_username.text forKey:[Constants getUsernameKey]];
+            [defaults setObject:textField_password.text forKey:[Constants getPasswordKey]];
+            
+        } else if ([status isEqualToString:[Constants getFailingStatus]]) {
+        }
     }
 }
 
 -(void)register:(id)sender {
     if ([self validate]) {
         NSString* request = [self addParameters];
-        NSString* registerFlag = [[PARAMETER_REGISTER stringByAppendingString:@"="] stringByAppendingString:REGISTER_TRUE];
+        NSString* registerFlag = [[[Constants getRegisterParameter] stringByAppendingString:@"="] stringByAppendingString:REGISTER_TRUE];
         request = [[request stringByAppendingString:@"&"] stringByAppendingString:registerFlag];
         NSDictionary* dictionary = [self sendRequest:request];
         
-        NSString* status = [dictionary objectForKey:PROPERY_STATUS];
-        NSString* message = [dictionary objectForKey:PROPERY_MESSAGE];
+        NSString* status = [dictionary objectForKey:[Constants getStatusProperty]];
+        NSString* message = [dictionary objectForKey:[Constants getMessageProperty]];
         
-        if ([status isEqualToString:STATUS_SUCESS]) {
-            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:textField_username.text forKey:[Constants getUsernameKey]];
-            [defaults setObject:textField_password.text forKey:[Constants getPasswordKey]];
-        }
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
         
         printf("---------------------------------------\n");
         printf("Status:%s\n", [status UTF8String]);
         printf("Message:%s\n", [message UTF8String]);
+        
+        if ([status isEqualToString:[Constants getSuccessStatus]]) {
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:textField_username.text forKey:[Constants getUsernameKey]];
+            [defaults setObject:textField_password.text forKey:[Constants getPasswordKey]];
+            
+            printf("True\n");
+        } else if ([status isEqualToString:[Constants getFailingStatus]]) {
+            printf("False\n");
+        }
+        
     }
 }
 
@@ -89,9 +99,9 @@ static const NSString* STATUS_FAILING = @"Failure";
 }
 
 -(NSString*)addParameters {
-    NSString* username = [[PARAMETER_USERNAME stringByAppendingString:@"="] stringByAppendingString:textField_username.text];
-    NSString* password = [[PARAMETER_PASSWORD stringByAppendingString:@"="] stringByAppendingString:textField_password.text];
-    NSString* url = [[[[[Constants getLoginRegisterURL] stringByAppendingString:@"?"] stringByAppendingString:username] stringByAppendingString:@"&"] stringByAppendingString:password];
+    NSString* usernameParameter = [[[Constants getusernameParameter] stringByAppendingString:@"="] stringByAppendingString:textField_username.text];
+    NSString* passwordParameter = [[[Constants getPasswordParameter] stringByAppendingString:@"="] stringByAppendingString:textField_password.text];
+    NSString* url = [[[[[Constants getLoginRegisterURL] stringByAppendingString:@"?"] stringByAppendingString:usernameParameter] stringByAppendingString:@"&"] stringByAppendingString:passwordParameter];
     return url;
 }
 

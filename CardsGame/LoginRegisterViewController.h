@@ -10,6 +10,8 @@
 
 @interface LoginRegisterViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView* imageView;
+
 @property (strong, nonatomic) IBOutlet UITextField* textField_username;
 @property (strong, nonatomic) IBOutlet UITextField* textField_password;
 
