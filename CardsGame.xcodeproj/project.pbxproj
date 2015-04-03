@@ -24,6 +24,7 @@
 		D1E675701AC949EC002E79C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754F1AC949EC002E79C0 /* UIKit.framework */; };
 		D1E675781AC949EC002E79C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1E675761AC949EC002E79C0 /* InfoPlist.strings */; };
 		D1E6757A1AC949EC002E79C0 /* CardsGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E675791AC949EC002E79C0 /* CardsGameTests.m */; };
+		D1F2FDD81ACEC40F00C5E45E /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F2FDD71ACEC40F00C5E45E /* Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		D1E675751AC949EC002E79C0 /* CardsGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CardsGameTests-Info.plist"; sourceTree = "<group>"; };
 		D1E675771AC949EC002E79C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D1E675791AC949EC002E79C0 /* CardsGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardsGameTests.m; sourceTree = "<group>"; };
+		D1F2FDD61ACEC40F00C5E45E /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		D1F2FDD71ACEC40F00C5E45E /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 		D1E6753F1AC949EB002E79C0 = {
 			isa = PBXGroup;
 			children = (
+				D1F2FDD61ACEC40F00C5E45E /* Utilities.h */,
+				D1F2FDD71ACEC40F00C5E45E /* Utilities.m */,
 				D1D313A11ACAE78F0006C24E /* Constants.h */,
 				D1D313A21ACAE78F0006C24E /* Constants.m */,
 				D1E675511AC949EC002E79C0 /* CardsGame */,
@@ -263,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F2FDD81ACEC40F00C5E45E /* Utilities.m in Sources */,
 				D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */,
 				D1E6755C1AC949EC002E79C0 /* AppDelegate.m in Sources */,
 				D1CD51981ACC03B00077A328 /* EditProfileViewController.m in Sources */,

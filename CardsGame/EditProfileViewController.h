@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditProfileViewController : UIViewController
+@interface EditProfileViewController : UIViewController <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView* imageView;
 @property (strong, nonatomic) IBOutlet UITextField* textField_name;
@@ -17,8 +17,5 @@
 
 -(IBAction)save:(id)sender;
 -(IBAction)cancel:(id)sender;
-
--(NSString*) addParameters;
--(NSDictionary*) sendRequest: (NSString*) requestURL;
 
 @end

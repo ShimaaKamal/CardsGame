@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginRegisterViewController : UIViewController
+@interface LoginRegisterViewController : UIViewController <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView* imageView;
 
@@ -20,10 +20,5 @@
 
 -(IBAction)login:(id)sender;
 -(IBAction)register:(id)sender;
-
--(BOOL) validate;
-
--(NSString*) addParameters;
--(NSDictionary*) sendRequest: (NSString*) requestURL;
 
 @end
