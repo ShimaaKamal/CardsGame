@@ -31,6 +31,7 @@ static const NSString* URL_UPDATE_USER_SERVLET;
 +(NSString*) getNameKey;
 +(NSString*) getScoreKey;
 +(NSString*) getImageKey;
++(NSString*) getImageURLKey;
 
 +(NSString*) getStatusProperty;
 +(NSString*) getMessageProperty;
@@ -43,5 +44,6 @@ static const NSString* URL_UPDATE_USER_SERVLET;
 +(NSString*) getScoreProperty;
 +(NSString*) getImageWidthProperty;
 +(NSString*) getImageURLProperty;
++(NSString*) getTopUsersProperty;
 
 @end

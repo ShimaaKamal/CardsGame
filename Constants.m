@@ -9,8 +9,8 @@
 #import "Constants.h"
 
 static const NSString* PREFIX = @"http://";
-static const NSString* IP = @"10.145.10.71";
-//static const NSString* IP = @"192.168.1.5";
+//static const NSString* IP = @"10.145.10.71";
+static const NSString* IP = @"192.168.1.5";
 static const NSString* PORT = @"8084";
 
 static const NSString* APP_NAME = @"Game";
@@ -34,6 +34,7 @@ static const NSString* KEY_PASSWORD = @"password";
 static const NSString* KEY_NAME = @"name";
 static const NSString* KEY_SCORE = @"score";
 static const NSString* KEY_IMAGE = @"image";
+static const NSString* KEY_IMAGE_URL = @"imageURL";
 
 static const NSString* PROPERY_STATUS = @"Status";
 static const NSString* PROPERY_MESSAGE = @"Message";
@@ -46,6 +47,7 @@ static const NSString* PROPERTY_NAME = @"name";
 static const NSString* PROPERTY_SCORE = @"score";
 static const NSString* PROPERTY_IMAGE_WIDTH = @"imageWidth";
 static const NSString* PROPERTY_IMAGE_URL = @"imageURL";
+static const NSString* PROPERTY_TOP_USERS = @"Top Users";
 
 @implementation Constants
 
@@ -79,6 +81,7 @@ static const NSString* PROPERTY_IMAGE_URL = @"imageURL";
     return PARAMETER_USERNAME;
 }
 
+
 +(NSString *)getPasswordParameter {
     return PARAMETER_PASSWORD;
 }
@@ -103,6 +106,7 @@ static const NSString* PROPERTY_IMAGE_URL = @"imageURL";
     return PARAMETER_IMAGE;
 }
 
+
 +(NSString *)getUsernameKey {
     return KEY_USERNAME;
 }
@@ -123,6 +127,11 @@ static const NSString* PROPERTY_IMAGE_URL = @"imageURL";
     return KEY_IMAGE;
 }
 
++(NSString *)getImageURLKey {
+    return KEY_IMAGE_URL;
+}
+
+
 +(NSString *)getStatusProperty {
     return PROPERY_STATUS;
 }
@@ -131,6 +140,7 @@ static const NSString* PROPERTY_IMAGE_URL = @"imageURL";
     return PROPERY_MESSAGE;
 }
 
+
 +(NSString *)getSuccessStatus {
     return STATUS_SUCESS;
 }
@@ -138,6 +148,7 @@ static const NSString* PROPERTY_IMAGE_URL = @"imageURL";
 +(NSString *)getFailingStatus {
     return STATUS_FAILING;
 }
+
 
 +(NSString *)getUserProperty {
     return PROPERTY_USER;
@@ -157,6 +168,10 @@ static const NSString* PROPERTY_IMAGE_URL = @"imageURL";
 
 +(NSString *)getImageURLProperty {
     return PROPERTY_IMAGE_URL;
+}
+
++(NSString *)getTopUsersProperty {
+    return PROPERTY_TOP_USERS;
 }
 
 @end

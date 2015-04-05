@@ -1,6 +1,7 @@
 #import "EditProfileViewController.h"
 #import "Constants.h"
 #import "Utilities.h"
+#import "User.h"
 
 UIImage* selectedImage;
 NSString* response;
@@ -135,6 +136,16 @@ NSString* response;
     NSData* imageData = [defaults objectForKey:[Constants getImageKey]];
     selectedImage = [UIImage imageWithData:imageData];
     [imageView setImage:selectedImage];
+    
+    NSString* filePath = [@"/Users/participant/Desktop/CardsGame" stringByAppendingPathComponent:@"Users.plist"];
+    NSData* archivedData = [NSData dataWithContentsOfFile:filePath];
+    
+    NSMutableArray* users = [NSKeyedUnarchiver unarchiveObjectWithData:archivedData];
+    
+    for (User* user in users) {
+        printf("----------------------------------------\n");
+        [user printData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

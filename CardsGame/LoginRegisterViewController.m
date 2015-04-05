@@ -2,6 +2,7 @@
 #import "EditProfileViewController.h"
 #import "Constants.h"
 #import "Utilities.h"
+#import "User.h"
 
 static const int USERNAME_MIN_LENGTH = 4;
 static const int PASSWORD_MIN_LENGTH = 6;
@@ -85,6 +86,7 @@ NSString* response;
     
     if ([status isEqualToString:[Constants getSuccessStatus]]) {
         [self saveUser:[dictionary objectForKey:[Constants getUserProperty]]];
+        [self saveTopUsers:[dictionary objectForKey:[Constants getTopUsersProperty]]];
     } else if ([status isEqualToString:[Constants getFailingStatus]]) {
     }
 }
@@ -116,6 +118,31 @@ NSString* response;
     printf("Name = %s\n", [name UTF8String]);
     printf("Score = %d\n", score);
     printf("Image URL = %s\n", [imageURL UTF8String]);
+}
+
+-(void) saveTopUsers: (NSArray*) usersDictionary {
+    NSMutableArray* users = [NSMutableArray new];
+    for (NSDictionary* userDictionary in usersDictionary) {
+        User* user = [User new];
+        user.username = [userDictionary objectForKey:[Constants getUsernameKey]];
+        user.name = [userDictionary objectForKey:[Constants getNameKey]];
+        user.score = [[userDictionary objectForKey:[Constants getScoreKey]] intValue];
+        
+        NSString* imageURL = [userDictionary objectForKey:[Constants getImageURLKey]];
+        if (imageURL != nil) {
+            NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+            UIImage* image = [UIImage imageWithData:data];
+            user.image = image;
+        }
+        [users addObject:user];
+        
+        printf("------------------------------------------\n");
+        [user printData];
+    }
+    
+    NSString* filePath = [@"/Users/participant/Desktop/CardsGame" stringByAppendingPathComponent:@"Users.plist"];
+    NSData* archivedData = [NSKeyedArchiver archivedDataWithRootObject:users];
+    [archivedData writeToFile:filePath atomically:YES];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
