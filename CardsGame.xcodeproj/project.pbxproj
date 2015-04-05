@@ -10,6 +10,7 @@
 		D1CD51981ACC03B00077A328 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CD51971ACC03B00077A328 /* EditProfileViewController.m */; };
 		D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */; };
 		D1D313A31ACAE78F0006C24E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D313A21ACAE78F0006C24E /* Constants.m */; };
+		D1D576B41AD198D000CBB3C9 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1D576B31AD198D000CBB3C9 /* default.jpg */; };
 		D1E6754C1AC949EC002E79C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754B1AC949EC002E79C0 /* Foundation.framework */; };
 		D1E6754E1AC949EC002E79C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */; };
 		D1E675501AC949EC002E79C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754F1AC949EC002E79C0 /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 		D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterViewController.m; sourceTree = "<group>"; };
 		D1D313A11ACAE78F0006C24E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D1D313A21ACAE78F0006C24E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		D1D576B31AD198D000CBB3C9 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = default.jpg; path = ../default.jpg; sourceTree = "<group>"; };
 		D1E675481AC949EC002E79C0 /* CardsGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1E6754B1AC949EC002E79C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,6 +95,7 @@
 		D1E6753F1AC949EB002E79C0 = {
 			isa = PBXGroup;
 			children = (
+				D1D576B31AD198D000CBB3C9 /* default.jpg */,
 				D1F2FDD61ACEC40F00C5E45E /* Utilities.h */,
 				D1F2FDD71ACEC40F00C5E45E /* Utilities.m */,
 				D1D313A11ACAE78F0006C24E /* Constants.h */,
@@ -250,6 +253,7 @@
 				D1E675671AC949EC002E79C0 /* Images.xcassets in Resources */,
 				D1E6755F1AC949EC002E79C0 /* Main_iPhone.storyboard in Resources */,
 				D1E675561AC949EC002E79C0 /* InfoPlist.strings in Resources */,
+				D1D576B41AD198D000CBB3C9 /* default.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

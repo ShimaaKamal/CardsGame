@@ -28,6 +28,10 @@ NSString* response;
 -(void)save:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:textField_name.text forKey:[Constants getNameKey]];
+    if (selectedImage != nil) {
+        [defaults setObject:UIImagePNGRepresentation(selectedImage) forKey:[Constants getImageKey]];
+    }
+    
     [Utilities sendRequest:[Constants getUpdateUserURL] :[self addParameters] :self];
     response = @"";
 }
