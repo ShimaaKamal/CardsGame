@@ -10,7 +10,7 @@
 
 static const NSString* PREFIX = @"http://";
 //static const NSString* IP = @"10.145.3.221";
-static const NSString* IP = @"192.168.1.5";
+static const NSString* IP = @"10.145.11.89";
 static const NSString* PORT = @"8084";
 
 static const NSString* APP_NAME = @"Game";

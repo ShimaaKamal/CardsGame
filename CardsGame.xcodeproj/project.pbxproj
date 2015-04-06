@@ -10,6 +10,8 @@
 		D1CD51981ACC03B00077A328 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CD51971ACC03B00077A328 /* EditProfileViewController.m */; };
 		D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */; };
 		D1D313A31ACAE78F0006C24E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D313A21ACAE78F0006C24E /* Constants.m */; };
+		D1DB5B461ACEE27200B26978 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB5B451ACEE27200B26978 /* RankingViewController.m */; };
+		D1DB5B491ACEF04200B26978 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB5B481ACEF04200B26978 /* HomeViewController.m */; };
 		D1E6754C1AC949EC002E79C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754B1AC949EC002E79C0 /* Foundation.framework */; };
 		D1E6754E1AC949EC002E79C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */; };
 		D1E675501AC949EC002E79C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754F1AC949EC002E79C0 /* UIKit.framework */; };
@@ -44,6 +46,10 @@
 		D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterViewController.m; sourceTree = "<group>"; };
 		D1D313A11ACAE78F0006C24E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D1D313A21ACAE78F0006C24E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		D1DB5B441ACEE27200B26978 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankingViewController.h; path = ../RankingViewController.h; sourceTree = "<group>"; };
+		D1DB5B451ACEE27200B26978 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankingViewController.m; path = ../RankingViewController.m; sourceTree = "<group>"; };
+		D1DB5B471ACEF04200B26978 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D1DB5B481ACEF04200B26978 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D1E675481AC949EC002E79C0 /* CardsGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1E6754B1AC949EC002E79C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +143,10 @@
 				D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */,
 				D1CD51961ACC03B00077A328 /* EditProfileViewController.h */,
 				D1CD51971ACC03B00077A328 /* EditProfileViewController.m */,
+				D1DB5B441ACEE27200B26978 /* RankingViewController.h */,
+				D1DB5B451ACEE27200B26978 /* RankingViewController.m */,
+				D1DB5B471ACEF04200B26978 /* HomeViewController.h */,
+				D1DB5B481ACEF04200B26978 /* HomeViewController.m */,
 			);
 			path = CardsGame;
 			sourceTree = "<group>";
@@ -271,9 +281,11 @@
 				D1F2FDD81ACEC40F00C5E45E /* Utilities.m in Sources */,
 				D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */,
 				D1E6755C1AC949EC002E79C0 /* AppDelegate.m in Sources */,
+				D1DB5B461ACEE27200B26978 /* RankingViewController.m in Sources */,
 				D1CD51981ACC03B00077A328 /* EditProfileViewController.m in Sources */,
 				D1E675581AC949EC002E79C0 /* main.m in Sources */,
 				D1D313A31ACAE78F0006C24E /* Constants.m in Sources */,
+				D1DB5B491ACEF04200B26978 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
