@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1933C631AD11D4D000011F9 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = D1933C621AD11D4D000011F9 /* Card.m */; };
+		D197EA121AD047E800113B53 /* pic9.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA111AD047E800113B53 /* pic9.png */; };
+		D197EA141AD047EF00113B53 /* pic3.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA131AD047EF00113B53 /* pic3.png */; };
+		D197EA161AD047F500113B53 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA151AD047F500113B53 /* pic2.png */; };
+		D197EA181AD047FE00113B53 /* pic5.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA171AD047FE00113B53 /* pic5.png */; };
+		D197EA1A1AD0481000113B53 /* pic8.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA191AD0481000113B53 /* pic8.png */; };
+		D197EA1C1AD0485B00113B53 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA1B1AD0485B00113B53 /* pic1.png */; };
+		D197EA1E1AD0486200113B53 /* Help_mark_query_question_support_talk-128.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA1D1AD0486200113B53 /* Help_mark_query_question_support_talk-128.png */; };
+		D197EA201AD0487800113B53 /* pic7.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA1F1AD0487800113B53 /* pic7.png */; };
+		D197EA221AD0488800113B53 /* pic4.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA211AD0488800113B53 /* pic4.png */; };
+		D197EA241AD0489700113B53 /* pic6.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA231AD0489700113B53 /* pic6.png */; };
+		D197EA271AD04B5100113B53 /* GameCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D197EA261AD04B5100113B53 /* GameCardViewController.m */; };
 		D1CD51981ACC03B00077A328 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CD51971ACC03B00077A328 /* EditProfileViewController.m */; };
 		D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */; };
 		D1D313A31ACAE78F0006C24E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D313A21ACAE78F0006C24E /* Constants.m */; };
@@ -38,6 +50,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1933C611AD11D4D000011F9 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		D1933C621AD11D4D000011F9 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		D197EA111AD047E800113B53 /* pic9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic9.png; path = ../../../pic9.png; sourceTree = "<group>"; };
+		D197EA131AD047EF00113B53 /* pic3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic3.png; path = ../../../pic3.png; sourceTree = "<group>"; };
+		D197EA151AD047F500113B53 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../../pic2.png; sourceTree = "<group>"; };
+		D197EA171AD047FE00113B53 /* pic5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic5.png; path = ../../../pic5.png; sourceTree = "<group>"; };
+		D197EA191AD0481000113B53 /* pic8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic8.png; path = ../../../pic8.png; sourceTree = "<group>"; };
+		D197EA1B1AD0485B00113B53 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../../pic1.png; sourceTree = "<group>"; };
+		D197EA1D1AD0486200113B53 /* Help_mark_query_question_support_talk-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Help_mark_query_question_support_talk-128.png"; path = "../../../Help_mark_query_question_support_talk-128.png"; sourceTree = "<group>"; };
+		D197EA1F1AD0487800113B53 /* pic7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic7.png; path = ../../../pic7.png; sourceTree = "<group>"; };
+		D197EA211AD0488800113B53 /* pic4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic4.png; path = ../../../pic4.png; sourceTree = "<group>"; };
+		D197EA231AD0489700113B53 /* pic6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic6.png; path = ../../../pic6.png; sourceTree = "<group>"; };
+		D197EA251AD04B5100113B53 /* GameCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCardViewController.h; sourceTree = "<group>"; };
+		D197EA261AD04B5100113B53 /* GameCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCardViewController.m; sourceTree = "<group>"; };
 		D1CD51961ACC03B00077A328 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		D1CD51971ACC03B00077A328 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		D1D3139E1ACAE2300006C24E /* LoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterViewController.h; sourceTree = "<group>"; };
@@ -131,12 +157,16 @@
 				D1E6755B1AC949EC002E79C0 /* AppDelegate.m */,
 				D1E6755D1AC949EC002E79C0 /* Main_iPhone.storyboard */,
 				D1E675601AC949EC002E79C0 /* Main_iPad.storyboard */,
+				D197EA261AD04B5100113B53 /* GameCardViewController.m */,
+				D197EA251AD04B5100113B53 /* GameCardViewController.h */,
 				D1E675661AC949EC002E79C0 /* Images.xcassets */,
 				D1E675521AC949EC002E79C0 /* Supporting Files */,
 				D1D3139E1ACAE2300006C24E /* LoginRegisterViewController.h */,
 				D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */,
 				D1CD51961ACC03B00077A328 /* EditProfileViewController.h */,
 				D1CD51971ACC03B00077A328 /* EditProfileViewController.m */,
+				D1933C611AD11D4D000011F9 /* Card.h */,
+				D1933C621AD11D4D000011F9 /* Card.m */,
 			);
 			path = CardsGame;
 			sourceTree = "<group>";
@@ -144,6 +174,16 @@
 		D1E675521AC949EC002E79C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D197EA171AD047FE00113B53 /* pic5.png */,
+				D197EA1B1AD0485B00113B53 /* pic1.png */,
+				D197EA1D1AD0486200113B53 /* Help_mark_query_question_support_talk-128.png */,
+				D197EA191AD0481000113B53 /* pic8.png */,
+				D197EA111AD047E800113B53 /* pic9.png */,
+				D197EA231AD0489700113B53 /* pic6.png */,
+				D197EA151AD047F500113B53 /* pic2.png */,
+				D197EA211AD0488800113B53 /* pic4.png */,
+				D197EA1F1AD0487800113B53 /* pic7.png */,
+				D197EA131AD047EF00113B53 /* pic3.png */,
 				D1E675531AC949EC002E79C0 /* CardsGame-Info.plist */,
 				D1E675541AC949EC002E79C0 /* InfoPlist.strings */,
 				D1E675571AC949EC002E79C0 /* main.m */,
@@ -247,9 +287,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1E675621AC949EC002E79C0 /* Main_iPad.storyboard in Resources */,
+				D197EA121AD047E800113B53 /* pic9.png in Resources */,
+				D197EA201AD0487800113B53 /* pic7.png in Resources */,
+				D197EA1A1AD0481000113B53 /* pic8.png in Resources */,
+				D197EA161AD047F500113B53 /* pic2.png in Resources */,
+				D197EA141AD047EF00113B53 /* pic3.png in Resources */,
+				D197EA181AD047FE00113B53 /* pic5.png in Resources */,
+				D197EA1C1AD0485B00113B53 /* pic1.png in Resources */,
+				D197EA221AD0488800113B53 /* pic4.png in Resources */,
 				D1E675671AC949EC002E79C0 /* Images.xcassets in Resources */,
 				D1E6755F1AC949EC002E79C0 /* Main_iPhone.storyboard in Resources */,
+				D197EA241AD0489700113B53 /* pic6.png in Resources */,
 				D1E675561AC949EC002E79C0 /* InfoPlist.strings in Resources */,
+				D197EA1E1AD0486200113B53 /* Help_mark_query_question_support_talk-128.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +321,8 @@
 				D1F2FDD81ACEC40F00C5E45E /* Utilities.m in Sources */,
 				D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */,
 				D1E6755C1AC949EC002E79C0 /* AppDelegate.m in Sources */,
+				D1933C631AD11D4D000011F9 /* Card.m in Sources */,
+				D197EA271AD04B5100113B53 /* GameCardViewController.m in Sources */,
 				D1CD51981ACC03B00077A328 /* EditProfileViewController.m in Sources */,
 				D1E675581AC949EC002E79C0 /* main.m in Sources */,
 				D1D313A31ACAE78F0006C24E /* Constants.m in Sources */,
