@@ -99,6 +99,10 @@
 		D1E6753F1AC949EB002E79C0 = {
 			isa = PBXGroup;
 			children = (
+				D1D500D11AD1D57600D90275 /* Users.plist */,
+				D1D500CE1AD1D31900D90275 /* User.h */,
+				D1D500CF1AD1D31900D90275 /* User.m */,
+				D1D576B31AD198D000CBB3C9 /* default.jpg */,
 				D1F2FDD61ACEC40F00C5E45E /* Utilities.h */,
 				D1F2FDD71ACEC40F00C5E45E /* Utilities.m */,
 				D1D313A11ACAE78F0006C24E /* Constants.h */,
@@ -257,9 +261,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1E675621AC949EC002E79C0 /* Main_iPad.storyboard in Resources */,
+				D1D500D21AD1D57600D90275 /* Users.plist in Resources */,
 				D1E675671AC949EC002E79C0 /* Images.xcassets in Resources */,
 				D1E6755F1AC949EC002E79C0 /* Main_iPhone.storyboard in Resources */,
 				D1E675561AC949EC002E79C0 /* InfoPlist.strings in Resources */,
+				D1D576B41AD198D000CBB3C9 /* default.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1F2FDD81ACEC40F00C5E45E /* Utilities.m in Sources */,
+				D1D500D01AD1D31900D90275 /* User.m in Sources */,
 				D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */,
 				D1E6755C1AC949EC002E79C0 /* AppDelegate.m in Sources */,
 				D1DB5B461ACEE27200B26978 /* RankingViewController.m in Sources */,

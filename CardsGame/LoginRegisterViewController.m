@@ -1,15 +1,8 @@
-//
-//  LoginRegisterViewController.m
-//  CardsGame
-//
-//  Created by JETS on 3/31/15.
-//  Copyright (c) 2015 JETS. All rights reserved.
-//
-
 #import "LoginRegisterViewController.h"
 #import "EditProfileViewController.h"
 #import "Constants.h"
 #import "Utilities.h"
+#import "User.h"
 
 static const int USERNAME_MIN_LENGTH = 4;
 static const int PASSWORD_MIN_LENGTH = 6;
@@ -88,16 +81,68 @@ NSString* response;
     [alert show];
     
     printf("---------------------------------------\n");
-    printf("Status:%s\n", [status UTF8String]);
-    printf("Message:%s\n", [message UTF8String]);
+    printf("Status: %s\n", [status UTF8String]);
+    printf("Message: %s\n", [message UTF8String]);
     
     if ([status isEqualToString:[Constants getSuccessStatus]]) {
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:textField_username.text forKey:[Constants getUsernameKey]];
-        [defaults setObject:textField_password.text forKey:[Constants getPasswordKey]];
-        
+        [self saveUser:[dictionary objectForKey:[Constants getUserProperty]]];
+        [self saveTopUsers:[dictionary objectForKey:[Constants getTopUsersProperty]]];
     } else if ([status isEqualToString:[Constants getFailingStatus]]) {
     }
+}
+
+-(void) saveUser: (NSDictionary*) user {
+    NSString* username = textField_username.text;
+    NSString* password = textField_password.text;
+    NSString* name = [user objectForKey:[Constants getNameProperty]];
+    int score = [[user objectForKey:[Constants getScoreProperty]] integerValue];
+    NSString* imageURL = [user objectForKey:[Constants getImageURLProperty]];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:username forKey:[Constants getUsernameKey]];
+    [defaults setObject:password forKey:[Constants getPasswordKey]];
+    [defaults setInteger:score forKey:[Constants getScoreKey]];
+    
+    if (name != nil) {
+        [defaults setObject:name forKey:[Constants getNameKey]];
+    }
+    
+    if (imageURL != nil) {
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+        UIImage* image = [UIImage imageWithData:data];
+        [imageView setImage:image];
+        
+        [defaults setObject:UIImagePNGRepresentation(image) forKey:[Constants getImageKey]];
+    }
+    
+    printf("Name = %s\n", [name UTF8String]);
+    printf("Score = %d\n", score);
+    printf("Image URL = %s\n", [imageURL UTF8String]);
+}
+
+-(void) saveTopUsers: (NSArray*) usersDictionary {
+    NSMutableArray* users = [NSMutableArray new];
+    for (NSDictionary* userDictionary in usersDictionary) {
+        User* user = [User new];
+        user.username = [userDictionary objectForKey:[Constants getUsernameKey]];
+        user.name = [userDictionary objectForKey:[Constants getNameKey]];
+        user.score = [[userDictionary objectForKey:[Constants getScoreKey]] intValue];
+        
+        NSString* imageURL = [userDictionary objectForKey:[Constants getImageURLKey]];
+        if (imageURL != nil) {
+            NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+            UIImage* image = [UIImage imageWithData:data];
+            user.image = image;
+        }
+        [users addObject:user];
+        
+        printf("------------------------------------------\n");
+        [user printData];
+    }
+    
+    NSString* filePath = [@"/Users/participant/Desktop/CardsGame" stringByAppendingPathComponent:@"Users.plist"];
+    NSData* archivedData = [NSKeyedArchiver archivedDataWithRootObject:users];
+    [archivedData writeToFile:filePath atomically:YES];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

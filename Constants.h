@@ -23,16 +23,27 @@ static const NSString* URL_UPDATE_USER_SERVLET;
 +(NSString*) getNameParameter;
 +(NSString*) getScoreParameter;
 +(NSString*) getRegisterParameter;
++(NSString*) getImageWidthParameter;
++(NSString*) getImageParameter;
 
 +(NSString*) getUsernameKey;
 +(NSString*) getPasswordKey;
 +(NSString*) getNameKey;
 +(NSString*) getScoreKey;
++(NSString*) getImageKey;
++(NSString*) getImageURLKey;
 
 +(NSString*) getStatusProperty;
 +(NSString*) getMessageProperty;
 
 +(NSString*) getSuccessStatus;
 +(NSString*) getFailingStatus;
+
++(NSString*) getUserProperty;
++(NSString*) getNameProperty;
++(NSString*) getScoreProperty;
++(NSString*) getImageWidthProperty;
++(NSString*) getImageURLProperty;
++(NSString*) getTopUsersProperty;
 
 @end
