@@ -9,9 +9,9 @@
 #import "HomeViewController.h"
 #import "Constants.h"
 #import "RankingViewController.h"
+#import "EditProfileViewController.h"
 
-@interface HomeViewController (){
-
+@interface HomeViewController () {
     NSMutableData *responseData;
     NSMutableArray *theNames;
     NSMutableArray *theScores;
@@ -20,6 +20,8 @@
 @end
 
 @implementation HomeViewController
+
+@synthesize imageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,19 +36,38 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    responseData = [[NSMutableData alloc]init];
-    theNames = [NSMutableArray array];
-    theScores = [NSMutableArray array];
-    NSURL *url = [[NSURL alloc ]initWithString:[Constants getTopUsersURL]];
-    NSURLRequest *request =[NSURLRequest requestWithURL:url];
-    NSURLConnection *con = [[NSURLConnection alloc]initWithRequest:request delegate:self];
+//    responseData = [[NSMutableData alloc]init];
+//    theNames = [NSMutableArray array];
+//    theScores = [NSMutableArray array];
+//    NSURL *url = [[NSURL alloc ]initWithString:[Constants getTopUsersURL]];
+//    NSURLRequest *request =[NSURLRequest requestWithURL:url];
+//    NSURLConnection *con = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     
+    UIImage* image = [UIImage imageNamed:@"logo.png"];
+    [imageView setImage:image];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)startGame:(id)sender {
+    
+}
+
+-(void)editProfile:(id)sender {
+    EditProfileViewController* editProfileViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
+    [self presentViewController:editProfileViewController animated:YES completion:nil];
+}
+
+-(void)settings:(id)sender {
+    
+}
+
+-(void)signOut:(id)sender {
+    
 }
 
 -(IBAction)showRanks:(id)sender{
@@ -73,22 +94,18 @@
         [theScores addObject:[NSString stringWithFormat:@"%@",[dictObject objectForKey:@"score"] ]];
        // printf("%s\n" , [[dictObject objectForKey:@"name"] UTF8String]);
        //printf("%s\n",[[NSString stringWithFormat:@"%@",[dictObject objectForKey:@"score"] ]UTF8String]);
-
    }
 
 }
 
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
     if ([segue.identifier  isEqualToString:@"ranksSegue"]) {
         
         RankingViewController *ranksView = segue.destinationViewController;
         
         ranksView.namesF = theNames;
         ranksView.scoresF = theScores;
-        
-        
     }
 }
 

@@ -38,6 +38,7 @@ NSString* response;
 }
 
 -(void)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(NSString *)addParameters {
@@ -107,10 +108,11 @@ NSString* response;
     NSString* status = [dictionary objectForKey:[Constants getStatusProperty]];
     NSString* message = [dictionary objectForKey:[Constants getMessageProperty]];
     
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alert show];
     
     if ([status isEqualToString:[Constants getSuccessStatus]]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
@@ -136,16 +138,6 @@ NSString* response;
     NSData* imageData = [defaults objectForKey:[Constants getImageKey]];
     selectedImage = [UIImage imageWithData:imageData];
     [imageView setImage:selectedImage];
-    
-    NSString* filePath = [@"/Users/participant/Desktop/CardsGame" stringByAppendingPathComponent:@"Users.plist"];
-    NSData* archivedData = [NSData dataWithContentsOfFile:filePath];
-    
-    NSMutableArray* users = [NSKeyedUnarchiver unarchiveObjectWithData:archivedData];
-    
-    for (User* user in users) {
-        printf("----------------------------------------\n");
-        [user printData];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
