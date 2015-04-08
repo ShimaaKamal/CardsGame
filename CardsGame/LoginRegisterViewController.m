@@ -1,5 +1,5 @@
 #import "LoginRegisterViewController.h"
-#import "EditProfileViewController.h"
+#import "HomeViewController.h"
 #import "Constants.h"
 #import "Utilities.h"
 #import "User.h"
@@ -12,6 +12,7 @@ static const NSString* ERROR_PASSWORD_MIN_LENGTH = @"Minimum length for password
 
 static const NSString* REGISTER_TRUE = @"true";
 
+BOOL isRegistering;
 NSString* response;
 
 @interface LoginRegisterViewController ()
@@ -25,6 +26,7 @@ NSString* response;
 -(void)login:(id)sender {
     if ([self validate]) {
         [Utilities sendRequest:[Constants getLoginRegisterURL] :[self addParameters:YES] :self];
+        isRegistering = NO;
         response = @"";
     }
 }
@@ -32,6 +34,7 @@ NSString* response;
 -(void)register:(id)sender {
     if ([self validate]) {
         [Utilities sendRequest:[Constants getLoginRegisterURL] :[self addParameters:NO] :self];
+        isRegistering = YES;
         response = @"";
     }
 }
@@ -85,9 +88,11 @@ NSString* response;
         [self saveUser:[dictionary objectForKey:[Constants getUserProperty]]];
         [Utilities saveTopUsers:[dictionary objectForKey:[Constants getTopUsersProperty]]];
         
-        EditProfileViewController* editProfileViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-        [self presentViewController:editProfileViewController animated:YES completion:nil];
-    } else if ([status isEqualToString:[Constants getFailingStatus]]) {
+        HomeViewController* homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        [self presentViewController:homeViewController animated:YES completion:nil];
+    }
+    
+    if (isRegistering || [status isEqualToString:[Constants getFailingStatus]]) {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
     }
@@ -111,6 +116,8 @@ NSString* response;
     
     if (name != nil) {
         [defaults setObject:name forKey:[Constants getNameKey]];
+    } else {
+        [defaults removeObjectForKey:[Constants getNameKey]];
     }
     
     if (imageURL != nil) {
@@ -118,7 +125,11 @@ NSString* response;
         UIImage* image = [UIImage imageWithData:data];
         
         [defaults setObject:UIImagePNGRepresentation(image) forKey:[Constants getImageKey]];
+    } else {
+        [defaults removeObjectForKey:[Constants getImageKey]];
     }
+    
+    [defaults synchronize];
     
     printf("---------------------------------------\n");
     printf("Name = %s\n", [name UTF8String]);
@@ -133,7 +144,6 @@ NSString* response;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D1CCD2C51AD2EDB4008E0BA9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CCD2C41AD2EDB4008E0BA9 /* User.m */; };
 		D1CD51981ACC03B00077A328 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CD51971ACC03B00077A328 /* EditProfileViewController.m */; };
+		D1D140911AD546B4004C7041 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D140901AD546B4004C7041 /* StartViewController.m */; };
 		D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */; };
 		D1D313A31ACAE78F0006C24E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D313A21ACAE78F0006C24E /* Constants.m */; };
 		D1DB5B461ACEE27200B26978 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB5B451ACEE27200B26978 /* RankingViewController.m */; };
@@ -47,6 +48,8 @@
 		D1CCD2C41AD2EDB4008E0BA9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D1CD51961ACC03B00077A328 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		D1CD51971ACC03B00077A328 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		D1D1408F1AD546B4004C7041 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		D1D140901AD546B4004C7041 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		D1D3139E1ACAE2300006C24E /* LoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRegisterViewController.h; sourceTree = "<group>"; };
 		D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterViewController.m; sourceTree = "<group>"; };
 		D1D313A11ACAE78F0006C24E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				D1DB5B451ACEE27200B26978 /* RankingViewController.m */,
 				D1DB5B471ACEF04200B26978 /* HomeViewController.h */,
 				D1DB5B481ACEF04200B26978 /* HomeViewController.m */,
+				D1D1408F1AD546B4004C7041 /* StartViewController.h */,
+				D1D140901AD546B4004C7041 /* StartViewController.m */,
 			);
 			path = CardsGame;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				D1DB5B461ACEE27200B26978 /* RankingViewController.m in Sources */,
 				D1CD51981ACC03B00077A328 /* EditProfileViewController.m in Sources */,
 				D1E675581AC949EC002E79C0 /* main.m in Sources */,
+				D1D140911AD546B4004C7041 /* StartViewController.m in Sources */,
 				D1D313A31ACAE78F0006C24E /* Constants.m in Sources */,
 				D1DB5B491ACEF04200B26978 /* HomeViewController.m in Sources */,
 			);

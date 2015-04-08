@@ -27,12 +27,6 @@ NSString* response;
 }
 
 -(void)save:(id)sender {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:textField_name.text forKey:[Constants getNameKey]];
-    if (selectedImage != nil) {
-        [defaults setObject:UIImagePNGRepresentation(selectedImage) forKey:[Constants getImageKey]];
-    }
-    
     [Utilities sendRequest:[Constants getUpdateUserURL] :[self addParameters] :self];
     response = @"";
 }
@@ -107,6 +101,16 @@ NSString* response;
     
     NSString* status = [dictionary objectForKey:[Constants getStatusProperty]];
     NSString* message = [dictionary objectForKey:[Constants getMessageProperty]];
+    
+    if ([status isEqualToString:[Constants getSuccessStatus]]) {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:textField_name.text forKey:[Constants getNameKey]];
+        if (selectedImage != nil) {
+            [defaults setObject:UIImagePNGRepresentation(selectedImage) forKey:[Constants getImageKey]];
+        }
+        
+        [defaults synchronize];
+    }
     
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alert show];

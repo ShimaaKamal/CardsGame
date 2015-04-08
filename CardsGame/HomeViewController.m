@@ -1,15 +1,8 @@
-//
-//  HomeViewController.m
-//  CardsGame
-//
-//  Created by JETS on 4/3/15.
-//  Copyright (c) 2015 JETS. All rights reserved.
-//
-
 #import "HomeViewController.h"
 #import "Constants.h"
 #import "RankingViewController.h"
 #import "EditProfileViewController.h"
+#import "LoginRegisterViewController.h"
 
 @interface HomeViewController () {
     NSMutableData *responseData;
@@ -67,11 +60,19 @@
 }
 
 -(void)signOut:(id)sender {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:[Constants getUsernameKey]];
+    [defaults removeObjectForKey:[Constants getPasswordKey]];
+    [defaults removeObjectForKey:[Constants getNameKey]];
+    [defaults removeObjectForKey:[Constants getScoreKey]];
     
+    [defaults synchronize];
+    
+    LoginRegisterViewController* loginRegisterViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegisterViewController"];
+    [self presentViewController:loginRegisterViewController animated:YES completion:nil];
 }
 
 -(IBAction)showRanks:(id)sender{
-
     printf("Ranks\n");
 //    NSURL *url = [[NSURL alloc ]initWithString:[Constants getTopUsersURL]];
 //    NSURLRequest *request =[NSURLRequest requestWithURL:url];
