@@ -199,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="1491" y="98"/>
         </scene>
-        <!--View Controller - Settings-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="o6g-Ar-K3X">
             <objects>
-                <viewController title="Settings" id="2qO-3x-10O" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" title="Settings" id="2qO-3x-10O" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XYf-wp-7kK"/>
                         <viewControllerLayoutGuide type="bottom" id="YdK-Aq-h7x"/>

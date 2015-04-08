@@ -141,7 +141,13 @@ NSString* response;
     
     NSData* imageData = [defaults objectForKey:[Constants getImageKey]];
     selectedImage = [UIImage imageWithData:imageData];
-    [imageView setImage:selectedImage];
+    if (selectedImage != nil) {
+        [imageView setImage:selectedImage];
+    } else {
+        UIImage* image = [UIImage imageNamed:@"default.jpg"];
+        [imageView setImage:image];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
