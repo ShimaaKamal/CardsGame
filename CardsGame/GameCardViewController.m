@@ -10,6 +10,7 @@
 #import "Card.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Constants.h"
 
 
 @interface GameCardViewController ()
@@ -21,6 +22,8 @@
 @synthesize Button1;
 @synthesize cardsButton;
 @synthesize Timer;
+
+BOOL soundEnabled;
 
 NSMutableArray *Images;
 NSMutableArray *listToShow;
@@ -56,6 +59,10 @@ int seconds;
     [Timer setText:@"00:00:00"];
     
     [self listFill];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* name = [defaults stringForKey:[Constants getNameKey]];
+    soundEnabled = [defaults boolForKey:[Constants getSoundEnabledKey]];
 }
 
 
