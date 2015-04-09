@@ -32,6 +32,7 @@ static const NSString* URL_UPDATE_USER_SERVLET;
 +(NSString*) getScoreKey;
 +(NSString*) getImageKey;
 +(NSString*) getImageURLKey;
++(NSString*) getSoundEnabledKey;
 
 +(NSString*) getStatusProperty;
 +(NSString*) getMessageProperty;

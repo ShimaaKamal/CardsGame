@@ -35,6 +35,7 @@ static const NSString* KEY_NAME = @"name";
 static const NSString* KEY_SCORE = @"score";
 static const NSString* KEY_IMAGE = @"image";
 static const NSString* KEY_IMAGE_URL = @"imageURL";
+static const NSString* KEY_SOUND_ENABLED = @"soundEnabled";
 
 static const NSString* PROPERY_STATUS = @"Status";
 static const NSString* PROPERY_MESSAGE = @"Message";
@@ -131,6 +132,9 @@ static const NSString* PROPERTY_TOP_USERS = @"Top Users";
     return KEY_IMAGE_URL;
 }
 
++(NSString *)getSoundEnabledKey {
+    return KEY_SOUND_ENABLED;
+}
 
 +(NSString *)getStatusProperty {
     return PROPERY_STATUS;

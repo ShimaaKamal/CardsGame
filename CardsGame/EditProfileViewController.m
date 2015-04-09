@@ -27,17 +27,12 @@ NSString* response;
 }
 
 -(void)save:(id)sender {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:textField_name.text forKey:[Constants getNameKey]];
-    if (selectedImage != nil) {
-        [defaults setObject:UIImagePNGRepresentation(selectedImage) forKey:[Constants getImageKey]];
-    }
-    
     [Utilities sendRequest:[Constants getUpdateUserURL] :[self addParameters] :self];
     response = @"";
 }
 
 -(void)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(NSString *)addParameters {
@@ -107,10 +102,21 @@ NSString* response;
     NSString* status = [dictionary objectForKey:[Constants getStatusProperty]];
     NSString* message = [dictionary objectForKey:[Constants getMessageProperty]];
     
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    if ([status isEqualToString:[Constants getSuccessStatus]]) {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:textField_name.text forKey:[Constants getNameKey]];
+        if (selectedImage != nil) {
+            [defaults setObject:UIImagePNGRepresentation(selectedImage) forKey:[Constants getImageKey]];
+        }
+        
+        [defaults synchronize];
+    }
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alert show];
     
     if ([status isEqualToString:[Constants getSuccessStatus]]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
@@ -135,17 +141,13 @@ NSString* response;
     
     NSData* imageData = [defaults objectForKey:[Constants getImageKey]];
     selectedImage = [UIImage imageWithData:imageData];
-    [imageView setImage:selectedImage];
-    
-    NSString* filePath = [@"/Users/participant/Desktop/CardsGame" stringByAppendingPathComponent:@"Users.plist"];
-    NSData* archivedData = [NSData dataWithContentsOfFile:filePath];
-    
-    NSMutableArray* users = [NSKeyedUnarchiver unarchiveObjectWithData:archivedData];
-    
-    for (User* user in users) {
-        printf("----------------------------------------\n");
-        [user printData];
+    if (selectedImage != nil) {
+        [imageView setImage:selectedImage];
+    } else {
+        UIImage* image = [UIImage imageNamed:@"default.jpg"];
+        [imageView setImage:image];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
