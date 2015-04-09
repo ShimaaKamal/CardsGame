@@ -1,5 +1,5 @@
 #import "LoginRegisterViewController.h"
-#import "EditProfileViewController.h"
+#import "HomeViewController.h"
 #import "Constants.h"
 #import "Utilities.h"
 #import "User.h"
@@ -12,6 +12,7 @@ static const NSString* ERROR_PASSWORD_MIN_LENGTH = @"Minimum length for password
 
 static const NSString* REGISTER_TRUE = @"true";
 
+BOOL isRegistering;
 NSString* response;
 
 @interface LoginRegisterViewController ()
@@ -23,13 +24,19 @@ NSString* response;
 @synthesize imageView, textField_username, textField_password, label_usernameErrors, label_passwordErrors;
 
 -(void)login:(id)sender {
-    [Utilities sendRequest:[Constants getLoginRegisterURL] :[self addParameters:YES] :self];
-    response = @"";
+    if ([self validate]) {
+        [Utilities sendRequest:[Constants getLoginRegisterURL] :[self addParameters:YES] :self];
+        isRegistering = NO;
+        response = @"";
+    }
 }
 
 -(void)register:(id)sender {
-    [Utilities sendRequest:[Constants getLoginRegisterURL] :[self addParameters:NO] :self];
-    response = @"";
+    if ([self validate]) {
+        [Utilities sendRequest:[Constants getLoginRegisterURL] :[self addParameters:NO] :self];
+        isRegistering = YES;
+        response = @"";
+    }
 }
 
 -(BOOL)validate {
@@ -77,18 +84,22 @@ NSString* response;
     NSString* status = [dictionary objectForKey:[Constants getStatusProperty]];
     NSString* message = [dictionary objectForKey:[Constants getMessageProperty]];
     
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
+    if ([status isEqualToString:[Constants getSuccessStatus]]) {
+        [self saveUser:[dictionary objectForKey:[Constants getUserProperty]]];
+        [Utilities saveTopUsers:[dictionary objectForKey:[Constants getTopUsersProperty]]];
+        
+        HomeViewController* homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        [self presentViewController:homeViewController animated:YES completion:nil];
+    }
+    
+    if (isRegistering || [status isEqualToString:[Constants getFailingStatus]]) {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
     
     printf("---------------------------------------\n");
     printf("Status: %s\n", [status UTF8String]);
     printf("Message: %s\n", [message UTF8String]);
-    
-    if ([status isEqualToString:[Constants getSuccessStatus]]) {
-        [self saveUser:[dictionary objectForKey:[Constants getUserProperty]]];
-        [self saveTopUsers:[dictionary objectForKey:[Constants getTopUsersProperty]]];
-    } else if ([status isEqualToString:[Constants getFailingStatus]]) {
-    }
 }
 
 -(void) saveUser: (NSDictionary*) user {
@@ -105,44 +116,25 @@ NSString* response;
     
     if (name != nil) {
         [defaults setObject:name forKey:[Constants getNameKey]];
+    } else {
+        [defaults removeObjectForKey:[Constants getNameKey]];
     }
     
     if (imageURL != nil) {
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
         UIImage* image = [UIImage imageWithData:data];
-        [imageView setImage:image];
         
         [defaults setObject:UIImagePNGRepresentation(image) forKey:[Constants getImageKey]];
+    } else {
+        [defaults removeObjectForKey:[Constants getImageKey]];
     }
     
+    [defaults synchronize];
+    
+    printf("---------------------------------------\n");
     printf("Name = %s\n", [name UTF8String]);
     printf("Score = %d\n", score);
     printf("Image URL = %s\n", [imageURL UTF8String]);
-}
-
--(void) saveTopUsers: (NSArray*) usersDictionary {
-    NSMutableArray* users = [NSMutableArray new];
-    for (NSDictionary* userDictionary in usersDictionary) {
-        User* user = [User new];
-        user.username = [userDictionary objectForKey:[Constants getUsernameKey]];
-        user.name = [userDictionary objectForKey:[Constants getNameKey]];
-        user.score = [[userDictionary objectForKey:[Constants getScoreKey]] intValue];
-        
-        NSString* imageURL = [userDictionary objectForKey:[Constants getImageURLKey]];
-        if (imageURL != nil) {
-            NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
-            UIImage* image = [UIImage imageWithData:data];
-            user.image = image;
-        }
-        [users addObject:user];
-        
-        printf("------------------------------------------\n");
-        [user printData];
-    }
-    
-    NSString* filePath = [@"/Users/participant/Desktop/CardsGame" stringByAppendingPathComponent:@"Users.plist"];
-    NSData* archivedData = [NSKeyedArchiver archivedDataWithRootObject:users];
-    [archivedData writeToFile:filePath atomically:YES];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -152,13 +144,15 @@ NSString* response;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIImage* image = [UIImage imageNamed:@"logo.png"];
+    [imageView setImage:image];
 }
 
 - (void)didReceiveMemoryWarning {

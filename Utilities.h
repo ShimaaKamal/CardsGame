@@ -11,5 +11,6 @@
 @interface Utilities : NSObject
 
 +(void) sendRequest: (NSString*) url : (NSString*) parameters : (id) delegate;
++(void) saveTopUsers: (NSArray*) usersDictionary;
 
 @end
