@@ -61,7 +61,6 @@ int seconds;
     [self listFill];
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* name = [defaults stringForKey:[Constants getNameKey]];
     soundEnabled = [defaults boolForKey:[Constants getSoundEnabledKey]];
 }
 

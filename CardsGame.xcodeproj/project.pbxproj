@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1120D401AD6E4D100703A62 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = D1120D3E1AD6E4D100703A62 /* off.png */; };
+		D1120D411AD6E4D100703A62 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = D1120D3F1AD6E4D100703A62 /* on.png */; };
 		D197BB511AD6CE6A00010CF3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D197BB501AD6CE6A00010CF3 /* logo.png */; };
 		D197BB531AD6CE7600010CF3 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D197BB521AD6CE7600010CF3 /* default.jpg */; };
 		D197BB691AD6CF5E00010CF3 /* pic7.png in Resources */ = {isa = PBXBuildFile; fileRef = D197BB681AD6CF5E00010CF3 /* pic7.png */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1120D3E1AD6E4D100703A62 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = off.png; path = ../../off.png; sourceTree = "<group>"; };
+		D1120D3F1AD6E4D100703A62 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = on.png; path = ../../on.png; sourceTree = "<group>"; };
 		D197BB501AD6CE6A00010CF3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D197BB521AD6CE7600010CF3 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
 		D197BB681AD6CF5E00010CF3 /* pic7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic7.png; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 		D1E675521AC949EC002E79C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D1120D3E1AD6E4D100703A62 /* off.png */,
+				D1120D3F1AD6E4D100703A62 /* on.png */,
 				D197BB7C1AD6D1A900010CF3 /* sound.mp3 */,
 				D197BB501AD6CE6A00010CF3 /* logo.png */,
 				D197BB6E1AD6CFBF00010CF3 /* pic1.png */,
@@ -329,9 +335,11 @@
 				D1E675671AC949EC002E79C0 /* Images.xcassets in Resources */,
 				D197BB7B1AD6CFF500010CF3 /* pic8.png in Resources */,
 				D197BB731AD6CFCC00010CF3 /* pic3.png in Resources */,
+				D1120D401AD6E4D100703A62 /* off.png in Resources */,
 				D197BB6B1AD6CF6300010CF3 /* pic4.png in Resources */,
 				D197BB6F1AD6CFBF00010CF3 /* pic1.png in Resources */,
 				D197BB531AD6CE7600010CF3 /* default.jpg in Resources */,
+				D1120D411AD6E4D100703A62 /* on.png in Resources */,
 				D197BB711AD6CFC600010CF3 /* Help_mark_query_question_support_talk-128.png in Resources */,
 				D197BB7D1AD6D1A900010CF3 /* sound.mp3 in Resources */,
 				D197BB511AD6CE6A00010CF3 /* logo.png in Resources */,
