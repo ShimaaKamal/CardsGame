@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardsButton;
 
+@property (strong, nonatomic) IBOutlet UILabel *Timer;
+
 - (IBAction)FlipCard:(UIButton *)sender;
 -(UIImage *) drawRandomCard;
 

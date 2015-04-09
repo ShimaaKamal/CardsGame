@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D18D1F751AD556DE007153AF /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D18D1F741AD556DE007153AF /* sound.mp3 */; };
 		D1933C631AD11D4D000011F9 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = D1933C621AD11D4D000011F9 /* Card.m */; };
 		D197EA121AD047E800113B53 /* pic9.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA111AD047E800113B53 /* pic9.png */; };
 		D197EA141AD047EF00113B53 /* pic3.png in Resources */ = {isa = PBXBuildFile; fileRef = D197EA131AD047EF00113B53 /* pic3.png */; };
@@ -24,7 +25,6 @@
 		D1D313A31ACAE78F0006C24E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D313A21ACAE78F0006C24E /* Constants.m */; };
 		D1D500D01AD1D31900D90275 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D500CF1AD1D31900D90275 /* User.m */; };
 		D1D500D21AD1D57600D90275 /* Users.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1D500D11AD1D57600D90275 /* Users.plist */; };
-		D1D576B41AD198D000CBB3C9 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1D576B31AD198D000CBB3C9 /* default.jpg */; };
 		D1E6754C1AC949EC002E79C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754B1AC949EC002E79C0 /* Foundation.framework */; };
 		D1E6754E1AC949EC002E79C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */; };
 		D1E675501AC949EC002E79C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754F1AC949EC002E79C0 /* UIKit.framework */; };
@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D18D1F741AD556DE007153AF /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		D1933C611AD11D4D000011F9 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		D1933C621AD11D4D000011F9 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		D197EA111AD047E800113B53 /* pic9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic9.png; path = ../../../pic9.png; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		D1D500CE1AD1D31900D90275 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D1D500CF1AD1D31900D90275 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D1D500D11AD1D57600D90275 /* Users.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Users.plist; sourceTree = "<group>"; };
-		D1D576B31AD198D000CBB3C9 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = default.jpg; path = ../default.jpg; sourceTree = "<group>"; };
 		D1E675481AC949EC002E79C0 /* CardsGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1E6754B1AC949EC002E79C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,7 +129,6 @@
 				D1D500D11AD1D57600D90275 /* Users.plist */,
 				D1D500CE1AD1D31900D90275 /* User.h */,
 				D1D500CF1AD1D31900D90275 /* User.m */,
-				D1D576B31AD198D000CBB3C9 /* default.jpg */,
 				D1F2FDD61ACEC40F00C5E45E /* Utilities.h */,
 				D1F2FDD71ACEC40F00C5E45E /* Utilities.m */,
 				D1D313A11ACAE78F0006C24E /* Constants.h */,
@@ -188,6 +187,7 @@
 				D197EA171AD047FE00113B53 /* pic5.png */,
 				D197EA1B1AD0485B00113B53 /* pic1.png */,
 				D197EA1D1AD0486200113B53 /* Help_mark_query_question_support_talk-128.png */,
+				D18D1F741AD556DE007153AF /* sound.mp3 */,
 				D197EA191AD0481000113B53 /* pic8.png */,
 				D197EA111AD047E800113B53 /* pic9.png */,
 				D197EA231AD0489700113B53 /* pic6.png */,
@@ -297,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D18D1F751AD556DE007153AF /* sound.mp3 in Resources */,
 				D1E675621AC949EC002E79C0 /* Main_iPad.storyboard in Resources */,
 				D197EA121AD047E800113B53 /* pic9.png in Resources */,
 				D197EA201AD0487800113B53 /* pic7.png in Resources */,
@@ -306,6 +307,7 @@
 				D197EA181AD047FE00113B53 /* pic5.png in Resources */,
 				D197EA1C1AD0485B00113B53 /* pic1.png in Resources */,
 				D197EA221AD0488800113B53 /* pic4.png in Resources */,
+				D1D500D21AD1D57600D90275 /* Users.plist in Resources */,
 				D1E675671AC949EC002E79C0 /* Images.xcassets in Resources */,
 				D1E6755F1AC949EC002E79C0 /* Main_iPhone.storyboard in Resources */,
 				D197EA241AD0489700113B53 /* pic6.png in Resources */,
