@@ -5,6 +5,7 @@
 
 NSMutableArray* users;
 NSString* response;
+UIImage* defaultImage;
 
 @interface RankingViewController ()
 
@@ -29,6 +30,8 @@ NSString* response;
     
 //    names  = namesF;
 //    scores = scoresF;
+    
+    defaultImage = [UIImage imageNamed:@"default.jpg"];
     
     [self refreshTable];
 }
@@ -86,10 +89,19 @@ NSString* response;
     User* user = [users objectAtIndex:indexPath.row];
     NSString* score = [NSString stringWithFormat:@"%d", user.score];
     NSString* name = user.name;
+    UIImage* image = user.image;
+    
+    if (name == nil) {
+        name = user.username;
+    }
+    
+    if (image == nil) {
+        image = defaultImage;
+    }
     
     cell.textLabel.text = name;
     cell.detailTextLabel.text = score;
-    cell.imageView.image = user.image;
+    cell.imageView.image = image;
     
     return cell;
 }

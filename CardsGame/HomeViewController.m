@@ -40,10 +40,8 @@
     [imageView setImage:image];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)startGame:(id)sender {
@@ -70,13 +68,6 @@
     
     LoginRegisterViewController* loginRegisterViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegisterViewController"];
     [self presentViewController:loginRegisterViewController animated:YES completion:nil];
-}
-
--(IBAction)showRanks:(id)sender{
-    printf("Ranks\n");
-//    NSURL *url = [[NSURL alloc ]initWithString:[Constants getTopUsersURL]];
-//    NSURLRequest *request =[NSURLRequest requestWithURL:url];
-//    NSURLConnection *con = [[NSURLConnection alloc]initWithRequest:request delegate:self];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
