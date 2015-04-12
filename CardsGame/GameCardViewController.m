@@ -22,12 +22,20 @@
 @synthesize Button1;
 @synthesize cardsButton;
 @synthesize Timer;
+@synthesize TextScore;
+@synthesize switch_sound;
 
 BOOL soundEnabled;
 
 NSMutableArray *Images;
 NSMutableArray *listToShow;
 NSMutableArray *CardArray;
+UIButton *FirstButton;
+int indexRequired;
+int score = 0;
+BOOL soundEnabled;
+SystemSoundID soundId;
+
 
 int hours;
 int minutes;
@@ -45,23 +53,37 @@ int seconds;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //make userdefault
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    soundEnabled = [defaults boolForKey:[Constants getSoundEnabledKey]];
+    [switch_sound setOn:soundEnabled];
+    
+    //set background image
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
+    
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+   
+    
+    //initialize array of images
     CardArray = [[NSMutableArray alloc] init];
     Images = [[NSMutableArray alloc] initWithObjects:@"pic1.png", @"pic2.png",@"pic3.png",@"pic4.png",@"pic5.png",@"pic6.png",@"pic7.png",@"pic8.png",@"pic1.png",@"pic2.png",@"pic3.png",@"pic4.png",@"pic5.png",@"pic6.png",@"pic7.png",@"pic8.png",nil];
     
-    
-    for(UIButton *button in cardsButton ){
-        button.layer.borderWidth = 0.9f;
+    //make buttons rounded
+        for(UIButton *button in cardsButton ){
+        button.layer.borderWidth = 0.8f;
         button.layer.borderColor =[ [UIColor grayColor]CGColor];
         button.layer.cornerRadius = 10;
         printf("%ld",(long)[button tag]);
-    }
+        }
+    //initialize timer
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(count) userInfo:nil repeats:YES];
     [Timer setText:@"00:00:00"];
     
+    //generate random images
     [self listFill];
     
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    soundEnabled = [defaults boolForKey:[Constants getSoundEnabledKey]];
 }
 
 
@@ -148,34 +170,25 @@ int seconds;
 - (IBAction)FlipCard:(UIButton *)sender {
     
     if(sender.isEnabled){
-        [UIView transitionWithView:sender duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[sender setImage:[UIImage imageNamed:[listToShow objectAtIndex:[sender tag]]] forState:UIControlStateNormal];}   completion:nil];
-        [[CardArray objectAtIndex:[sender tag]] setFaceUp:YES];
-        //[self performSelector:@selector(matchUp:) withObject:sender afterDelay:3.0];
         
-//        CFBundleRef mainBundle = CFBundleGetMainBundle();
-//        CFURLRef soundFileUrl = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"page-   flip-01a", CFSTR ("mp3"), NULL);
-//        UInt32 SoundId;
-//        AudioServicesCreateSystemSoundID(soundFileUrl, &SoundId);
-//        AudioServicesPlaySystemSound(SoundId);
-//        AVAudioPlayer *audioPlayer;
-
         
-//        audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
-//        [audioPlayer play];
-        SystemSoundID soundId;
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"sound" ofType:@"mp3"];
+        if(soundEnabled){
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Button" ofType:@"mp3"];
         NSURL *soundUrl = [NSURL fileURLWithPath:path];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &soundId);
         AudioServicesPlaySystemSound(soundId);
+        }
+        
 
+        [UIView transitionWithView:sender duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[sender setImage:[UIImage imageNamed:[listToShow objectAtIndex:[sender tag]]] forState:UIControlStateNormal];}   completion:nil];
+        [[CardArray objectAtIndex:[sender tag]] setFaceUp:YES];
+        
+        //sound
+  
         
         [self matchUp:sender];
         
     }
-    //    [UIView transitionWithView:sender duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:nil
-    //                    completion:nil];
-    
     
 }
 
@@ -194,7 +207,13 @@ int seconds;
                 [[CardArray objectAtIndex:index] setPlayble:NO];
                 [buttonPressed setEnabled:NO];
                 [[cardsButton objectAtIndex:index] setEnabled:NO];
+                int timeInSeconds = hours * 60 *60 + minutes * 60+ seconds;
+                printf("time in second = %d",timeInSeconds);
+                score = (score + 100) ;
+                 NSString *ScoreValue = [[NSString alloc] initWithFormat:@"%d",score - (score / timeInSeconds) ];
+                
                 printf("\n %s",[[[CardArray objectAtIndex:index] imageName] UTF8String]);
+                [TextScore setText:ScoreValue];
             }
             else{
                 
@@ -202,32 +221,41 @@ int seconds;
                 [[CardArray objectAtIndex:index] setFaceUp:NO];
                 printf("\n inside else");
                 printf("\n %s",[[[CardArray objectAtIndex:index] imageName] UTF8String]);
-                
-               // [self performSelector:@selector(Rotate:) withObject:buttonPressed afterDelay:3.0];
-                
-               
 
+
+            
+                indexRequired = index;
+                FirstButton = buttonPressed ;
+                [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                 target:self
+                                               selector:@selector(Rotate)
+                                               userInfo:nil
+                                                repeats:NO];
+               
                 
-                //[NSThread sleepForTimeInterval:1.06];
-//                [buttonPressed setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];
-                printf("\n index = %d", index);
                 
-                [UIView transitionWithView:[cardsButton objectAtIndex:index] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:index] setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
-                
-                 [UIView transitionWithView:buttonPressed  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[buttonPressed setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
-                
-                
-                //
+              
             }
         }
         
         index++;
     }
 }
--(void)Rotate:(UIButton*)Buttonpressed : (int) index{
-    [UIView transitionWithView:[cardsButton objectAtIndex:index] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:index] setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
+-(void)Rotate{
+    [UIView transitionWithView:[cardsButton objectAtIndex:indexRequired] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:indexRequired] setImage:[UIImage imageNamed:@"Help.png"] forState:UIControlStateNormal];}   completion:nil];
     
-    [UIView transitionWithView:Buttonpressed  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:index] setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
+    [UIView transitionWithView:FirstButton  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[FirstButton setImage:[UIImage imageNamed:@"Help.png"] forState:UIControlStateNormal];}   completion:nil];
+    
+}
+-(IBAction)changeSwitch:(id)sender{
+    soundEnabled = [sender isOn];
+    if(![sender isOn]){
+        AudioServicesRemoveSystemSoundCompletion(soundId);
+    }
+    else{
+        AudioServicesPlayAlertSound(soundId);
+
+    }
     
 }
 
