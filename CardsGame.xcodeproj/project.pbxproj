@@ -193,12 +193,6 @@
 		D1E675511AC949EC002E79C0 /* CardsGame */ = {
 			isa = PBXGroup;
 			children = (
-				D1DD50621ADAFB8900B3FF7E /* Untitled-2-01.png */,
-				D1DD50631ADAFB8900B3FF7E /* Untitled-3-01.png */,
-				D1DD50641ADAFB8900B3FF7E /* Untitled-4-01.png */,
-				D1DD50651ADAFB8900B3FF7E /* Untitled-5-01.png */,
-				D1DD50661ADAFB8900B3FF7E /* Untitled-6-01.png */,
-				D1DD50671ADAFB8900B3FF7E /* Untitled-7-01.png */,
 				D197BB811AD6D1FC00010CF3 /* GameCardViewController.h */,
 				D197BB821AD6D1FC00010CF3 /* GameCardViewController.m */,
 				D197BB7E1AD6D1B600010CF3 /* Card.h */,
@@ -228,6 +222,12 @@
 		D1E675521AC949EC002E79C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D1DD50621ADAFB8900B3FF7E /* Untitled-2-01.png */,
+				D1DD50631ADAFB8900B3FF7E /* Untitled-3-01.png */,
+				D1DD50641ADAFB8900B3FF7E /* Untitled-4-01.png */,
+				D1DD50651ADAFB8900B3FF7E /* Untitled-5-01.png */,
+				D1DD50661ADAFB8900B3FF7E /* Untitled-6-01.png */,
+				D1DD50671ADAFB8900B3FF7E /* Untitled-7-01.png */,
 				D1DD50601ADAFB0900B3FF7E /* button.jpg */,
 				D197BB7C1AD6D1A900010CF3 /* sound.mp3 */,
 				D197BB501AD6CE6A00010CF3 /* logo.png */,
