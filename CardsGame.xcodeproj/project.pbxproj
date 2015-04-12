@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D1120D401AD6E4D100703A62 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = D1120D3E1AD6E4D100703A62 /* off.png */; };
-		D1120D411AD6E4D100703A62 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = D1120D3F1AD6E4D100703A62 /* on.png */; };
 		D197BB511AD6CE6A00010CF3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D197BB501AD6CE6A00010CF3 /* logo.png */; };
 		D197BB531AD6CE7600010CF3 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D197BB521AD6CE7600010CF3 /* default.jpg */; };
 		D197BB691AD6CF5E00010CF3 /* pic7.png in Resources */ = {isa = PBXBuildFile; fileRef = D197BB681AD6CF5E00010CF3 /* pic7.png */; };
@@ -30,11 +28,14 @@
 		D1D140961AD55D87004C7041 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D140951AD55D87004C7041 /* SettingsViewController.m */; };
 		D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */; };
 		D1D313A31ACAE78F0006C24E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D313A21ACAE78F0006C24E /* Constants.m */; };
-		D1D500D01AD1D31900D90275 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D500CF1AD1D31900D90275 /* User.m */; };
-		D1D500D21AD1D57600D90275 /* Users.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1D500D11AD1D57600D90275 /* Users.plist */; };
 		D1DB5B461ACEE27200B26978 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB5B451ACEE27200B26978 /* RankingViewController.m */; };
 		D1DB5B491ACEF04200B26978 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB5B481ACEF04200B26978 /* HomeViewController.m */; };
 		D1DBB2451AD400F500FFDCE8 /* Users.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1DBB2441AD400F500FFDCE8 /* Users.plist */; };
+		D1DF8EB61ADA665100C509FD /* Untitled-2-01.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DF8EB11ADA665100C509FD /* Untitled-2-01.png */; };
+		D1DF8EB71ADA665100C509FD /* Untitled-3-01.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DF8EB21ADA665100C509FD /* Untitled-3-01.png */; };
+		D1DF8EB81ADA665100C509FD /* Untitled-4-01.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DF8EB31ADA665100C509FD /* Untitled-4-01.png */; };
+		D1DF8EB91ADA665100C509FD /* Untitled-6-01.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DF8EB41ADA665100C509FD /* Untitled-6-01.png */; };
+		D1DF8EBA1ADA665100C509FD /* Untitled-7-01.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DF8EB51ADA665100C509FD /* Untitled-7-01.png */; };
 		D1E6754C1AC949EC002E79C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754B1AC949EC002E79C0 /* Foundation.framework */; };
 		D1E6754E1AC949EC002E79C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */; };
 		D1E675501AC949EC002E79C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754F1AC949EC002E79C0 /* UIKit.framework */; };
@@ -63,8 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D1120D3E1AD6E4D100703A62 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = off.png; path = ../../off.png; sourceTree = "<group>"; };
-		D1120D3F1AD6E4D100703A62 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = on.png; path = ../../on.png; sourceTree = "<group>"; };
 		D197BB501AD6CE6A00010CF3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D197BB521AD6CE7600010CF3 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
 		D197BB681AD6CF5E00010CF3 /* pic7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic7.png; sourceTree = "<group>"; };
@@ -94,14 +93,16 @@
 		D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterViewController.m; sourceTree = "<group>"; };
 		D1D313A11ACAE78F0006C24E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D1D313A21ACAE78F0006C24E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		D1D500CE1AD1D31900D90275 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		D1D500CF1AD1D31900D90275 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		D1D500D11AD1D57600D90275 /* Users.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Users.plist; sourceTree = "<group>"; };
 		D1DB5B441ACEE27200B26978 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankingViewController.h; path = ../RankingViewController.h; sourceTree = "<group>"; };
 		D1DB5B451ACEE27200B26978 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankingViewController.m; path = ../RankingViewController.m; sourceTree = "<group>"; };
 		D1DB5B471ACEF04200B26978 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D1DB5B481ACEF04200B26978 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D1DBB2441AD400F500FFDCE8 /* Users.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Users.plist; sourceTree = "<group>"; };
+		D1DF8EB11ADA665100C509FD /* Untitled-2-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-2-01.png"; path = "../../../../../Volumes/VMware Shared Folders/ShareFolder/Untitled-2-01.png"; sourceTree = "<group>"; };
+		D1DF8EB21ADA665100C509FD /* Untitled-3-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-3-01.png"; path = "../../../../../Volumes/VMware Shared Folders/ShareFolder/Untitled-3-01.png"; sourceTree = "<group>"; };
+		D1DF8EB31ADA665100C509FD /* Untitled-4-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-4-01.png"; path = "../../../../../Volumes/VMware Shared Folders/ShareFolder/Untitled-4-01.png"; sourceTree = "<group>"; };
+		D1DF8EB41ADA665100C509FD /* Untitled-6-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-6-01.png"; path = "../../../../../Volumes/VMware Shared Folders/ShareFolder/Untitled-6-01.png"; sourceTree = "<group>"; };
+		D1DF8EB51ADA665100C509FD /* Untitled-7-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-7-01.png"; path = "../../../../../Volumes/VMware Shared Folders/ShareFolder/Untitled-7-01.png"; sourceTree = "<group>"; };
 		D1E675481AC949EC002E79C0 /* CardsGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1E6754B1AC949EC002E79C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,13 +152,18 @@
 		D1E6753F1AC949EB002E79C0 = {
 			isa = PBXGroup;
 			children = (
-				D1D500D11AD1D57600D90275 /* Users.plist */,
-				D1D500CE1AD1D31900D90275 /* User.h */,
-				D1D500CF1AD1D31900D90275 /* User.m */,
+				D1DBB2441AD400F500FFDCE8 /* Users.plist */,
+				D1CCD2C31AD2EDB4008E0BA9 /* User.h */,
+				D1CCD2C41AD2EDB4008E0BA9 /* User.m */,
 				D1F2FDD61ACEC40F00C5E45E /* Utilities.h */,
 				D1F2FDD71ACEC40F00C5E45E /* Utilities.m */,
 				D1D313A11ACAE78F0006C24E /* Constants.h */,
 				D1D313A21ACAE78F0006C24E /* Constants.m */,
+				D1DF8EB11ADA665100C509FD /* Untitled-2-01.png */,
+				D1DF8EB21ADA665100C509FD /* Untitled-3-01.png */,
+				D1DF8EB31ADA665100C509FD /* Untitled-4-01.png */,
+				D1DF8EB41ADA665100C509FD /* Untitled-6-01.png */,
+				D1DF8EB51ADA665100C509FD /* Untitled-7-01.png */,
 				D1E675511AC949EC002E79C0 /* CardsGame */,
 				D1E675731AC949EC002E79C0 /* CardsGameTests */,
 				D1E6754A1AC949EC002E79C0 /* Frameworks */,
@@ -217,8 +223,6 @@
 		D1E675521AC949EC002E79C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D1120D3E1AD6E4D100703A62 /* off.png */,
-				D1120D3F1AD6E4D100703A62 /* on.png */,
 				D197BB7C1AD6D1A900010CF3 /* sound.mp3 */,
 				D197BB501AD6CE6A00010CF3 /* logo.png */,
 				D197BB6E1AD6CFBF00010CF3 /* pic1.png */,
@@ -336,17 +340,18 @@
 			files = (
 				D1E675621AC949EC002E79C0 /* Main_iPad.storyboard in Resources */,
 				D197BB6D1AD6CFB700010CF3 /* pic2.png in Resources */,
+				D1DF8EBA1ADA665100C509FD /* Untitled-7-01.png in Resources */,
 				D197BB751AD6CFD200010CF3 /* pic9.png in Resources */,
 				D1E675671AC949EC002E79C0 /* Images.xcassets in Resources */,
+				D1DF8EB61ADA665100C509FD /* Untitled-2-01.png in Resources */,
 				D197BB7B1AD6CFF500010CF3 /* pic8.png in Resources */,
 				D197BB731AD6CFCC00010CF3 /* pic3.png in Resources */,
-				D1120D401AD6E4D100703A62 /* off.png in Resources */,
 				D197BB6B1AD6CF6300010CF3 /* pic4.png in Resources */,
 				D197BB6F1AD6CFBF00010CF3 /* pic1.png in Resources */,
 				D197BB531AD6CE7600010CF3 /* default.jpg in Resources */,
-				D1120D411AD6E4D100703A62 /* on.png in Resources */,
 				D197BB711AD6CFC600010CF3 /* Help_mark_query_question_support_talk-128.png in Resources */,
 				D197BB7D1AD6D1A900010CF3 /* sound.mp3 in Resources */,
+				D1DF8EB81ADA665100C509FD /* Untitled-4-01.png in Resources */,
 				D197BB511AD6CE6A00010CF3 /* logo.png in Resources */,
 				D1DBB2451AD400F500FFDCE8 /* Users.plist in Resources */,
 				D197BB771AD6CFD900010CF3 /* pic5.png in Resources */,
@@ -354,6 +359,8 @@
 				D197BB791AD6CFEA00010CF3 /* pic6.png in Resources */,
 				D197BB691AD6CF5E00010CF3 /* pic7.png in Resources */,
 				D1E675561AC949EC002E79C0 /* InfoPlist.strings in Resources */,
+				D1DF8EB91ADA665100C509FD /* Untitled-6-01.png in Resources */,
+				D1DF8EB71ADA665100C509FD /* Untitled-3-01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
