@@ -28,6 +28,9 @@ BOOL soundEnabled;
 NSMutableArray *Images;
 NSMutableArray *listToShow;
 NSMutableArray *CardArray;
+UIButton *FirstButton;
+int indexRequired;
+
 
 int hours;
 int minutes;
@@ -61,7 +64,6 @@ int seconds;
     [self listFill];
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* name = [defaults stringForKey:[Constants getNameKey]];
     soundEnabled = [defaults boolForKey:[Constants getSoundEnabledKey]];
 }
 
@@ -151,18 +153,9 @@ int seconds;
     if(sender.isEnabled){
         [UIView transitionWithView:sender duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[sender setImage:[UIImage imageNamed:[listToShow objectAtIndex:[sender tag]]] forState:UIControlStateNormal];}   completion:nil];
         [[CardArray objectAtIndex:[sender tag]] setFaceUp:YES];
-        //[self performSelector:@selector(matchUp:) withObject:sender afterDelay:3.0];
         
-//        CFBundleRef mainBundle = CFBundleGetMainBundle();
-//        CFURLRef soundFileUrl = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"page-   flip-01a", CFSTR ("mp3"), NULL);
-//        UInt32 SoundId;
-//        AudioServicesCreateSystemSoundID(soundFileUrl, &SoundId);
-//        AudioServicesPlaySystemSound(SoundId);
-//        AVAudioPlayer *audioPlayer;
-
-        
-//        audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
-//        [audioPlayer play];
+        //sound
+  
         SystemSoundID soundId;
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"sound" ofType:@"mp3"];
@@ -174,9 +167,6 @@ int seconds;
         [self matchUp:sender];
         
     }
-    //    [UIView transitionWithView:sender duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:nil
-    //                    completion:nil];
-    
     
 }
 
@@ -203,32 +193,30 @@ int seconds;
                 [[CardArray objectAtIndex:index] setFaceUp:NO];
                 printf("\n inside else");
                 printf("\n %s",[[[CardArray objectAtIndex:index] imageName] UTF8String]);
-                
-               // [self performSelector:@selector(Rotate:) withObject:buttonPressed afterDelay:3.0];
-                
-               
 
+
+            
+                indexRequired = index;
+                FirstButton = buttonPressed ;
+                [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                 target:self
+                                               selector:@selector(Rotate)
+                                               userInfo:nil
+                                                repeats:NO];
+               
                 
-                //[NSThread sleepForTimeInterval:1.06];
-//                [buttonPressed setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];
-                printf("\n index = %d", index);
                 
-                [UIView transitionWithView:[cardsButton objectAtIndex:index] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:index] setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
-                
-                 [UIView transitionWithView:buttonPressed  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[buttonPressed setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
-                
-                
-                //
+              
             }
         }
         
         index++;
     }
 }
--(void)Rotate:(UIButton*)Buttonpressed : (int) index{
-    [UIView transitionWithView:[cardsButton objectAtIndex:index] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:index] setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
+-(void)Rotate{
+    [UIView transitionWithView:[cardsButton objectAtIndex:indexRequired] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:indexRequired] setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
     
-    [UIView transitionWithView:Buttonpressed  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:index] setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
+    [UIView transitionWithView:FirstButton  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[FirstButton setImage:[UIImage imageNamed:@"Help_mark_query_question_support_talk-128.png"] forState:UIControlStateNormal];}   completion:nil];
     
 }
 
