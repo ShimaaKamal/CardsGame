@@ -33,6 +33,7 @@ int score;
 int highestScore;
 int numberOfMatches;
 BOOL soundEnabled;
+bool flag = YES;
 
 SystemSoundID soundId;
 NSTimer* timer;
@@ -165,7 +166,7 @@ int seconds;
 }
 
 - (IBAction)FlipCard:(UIButton *)sender {
-    if(sender.isEnabled){
+    if(sender.isEnabled && flag == YES){
         if(soundEnabled){
             NSString *path = [[NSBundle mainBundle] pathForResource:@"Button" ofType:@"mp3"];
             NSURL *soundUrl = [NSURL fileURLWithPath:path];
@@ -192,12 +193,16 @@ int seconds;
             printf("%s",[[[CardArray objectAtIndex:[buttonPressed tag]] imageName] UTF8String]);
             printf("%s",[[card imageName] UTF8String]);
             
+            flag = NO;
+            
             if([[card imageName] isEqualToString:[[CardArray objectAtIndex:[buttonPressed tag]] imageName]] ){
                 //printf("hello from other world");
                 [[CardArray objectAtIndex:[buttonPressed tag]] setPlayble:NO];
                 [[CardArray objectAtIndex:index] setPlayble:NO];
                 [buttonPressed setEnabled:NO];
                 [[cardsButton objectAtIndex:index] setEnabled:NO];
+                
+                flag = YES;
                 
                 int timeInSeconds = hours * 60 * 60 + minutes * 60 + seconds;
                 printf("time in second = %d",timeInSeconds);
@@ -226,9 +231,10 @@ int seconds;
 }
 
 -(void)Rotate{
-    [UIView transitionWithView:[cardsButton objectAtIndex:indexRequired] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:indexRequired] setImage:[UIImage imageNamed:@"Help.png"] forState:UIControlStateNormal];}   completion:nil];
+    [UIView transitionWithView:[cardsButton objectAtIndex:indexRequired] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:indexRequired] setImage:[UIImage imageNamed:@"green-globe-help-27263.jpg"] forState:UIControlStateNormal];}   completion:nil];
     
-    [UIView transitionWithView:FirstButton  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[FirstButton setImage:[UIImage imageNamed:@"Help.png"] forState:UIControlStateNormal];}   completion:nil];
+    [UIView transitionWithView:FirstButton  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[FirstButton setImage:[UIImage imageNamed:@"green-globe-help-27263.jpg"] forState:UIControlStateNormal];}   completion:nil];
+    flag = YES;
 }
 
 -(void) finish {
@@ -285,6 +291,9 @@ int seconds;
     if (buttonIndex == 0) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+-(void)viewWillAppear:(BOOL)animated{
+    flag = YES;
 }
 
 @end

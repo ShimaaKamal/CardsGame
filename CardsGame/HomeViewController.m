@@ -28,7 +28,9 @@
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
-    UIImage* image = [UIImage imageNamed:@"logo.png"];
+   
+    
+    UIImage* image = [UIImage imageNamed:@"Logo3-02.png"];
     [imageView setImage:image];
 }
 
