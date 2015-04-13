@@ -154,9 +154,9 @@ NSString* response;
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
-    
-    UIImage* image = [UIImage imageNamed:@"logo.png"];
-    [imageView setImage:image];
+//    
+//    UIImage* image = [UIImage imageNamed:@"logo.png"];
+//    [imageView setImage:image];
 }
 
 - (void)didReceiveMemoryWarning {
