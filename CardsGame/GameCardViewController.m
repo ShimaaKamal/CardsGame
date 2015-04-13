@@ -27,12 +27,15 @@ NSMutableArray *Images;
 NSMutableArray *listToShow;
 NSMutableArray *CardArray;
 UIButton *FirstButton;
+
 int indexRequired;
-int score = 0;
+int score;
 int highestScore;
+int numberOfMatches;
 BOOL soundEnabled;
+
 SystemSoundID soundId;
-//NSString* response;
+NSTimer* timer;
 
 int hours;
 int minutes;
@@ -52,6 +55,10 @@ int seconds;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    indexRequired = 0;
+    score = 0;
+    numberOfMatches = 0;
     
     // Set sound
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -76,7 +83,10 @@ int seconds;
         printf("%ld",(long)[button tag]);
     }
     // Initialize timer
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(count) userInfo:nil repeats:YES];
+    hours = 0;
+    minutes = 0;
+    seconds = 0;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(count) userInfo:nil repeats:YES];
     [Timer setText:@"00:00:00"];
     
     // Initialize Highest Score
@@ -85,6 +95,10 @@ int seconds;
     
     // Generate random images
     [self listFill];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [timer invalidate];
 }
 
 -(void)listFill{
@@ -192,6 +206,10 @@ int seconds;
                 
                 printf("\n %s",[[[CardArray objectAtIndex:index] imageName] UTF8String]);
                 [TextScore setText:ScoreValue];
+                
+                if (++numberOfMatches == 8) {
+                    [self finish];
+                }
             } else {
                 [[CardArray objectAtIndex:[buttonPressed tag]] setFaceUp:NO];
                 [[CardArray objectAtIndex:index] setFaceUp:NO];
@@ -214,14 +232,27 @@ int seconds;
 }
 
 -(void) finish {
+    [timer invalidate];
+    
     // If the current score is higher than the highest score, save this score in the user defaults
+    printf("Score = %s\n", [[NSString stringWithFormat:@"%d", score] UTF8String]);
+    printf("Highest Score = %s\n", [[NSString stringWithFormat:@"%d", highestScore] UTF8String]);
     if (score > highestScore) {
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         [defaults setInteger:score forKey:[Constants getScoreKey]];
         
+        NSString* username = [defaults stringForKey:[Constants getUsernameKey]];
+        NSString* password = [defaults stringForKey:[Constants getPasswordKey]];
+        
+        NSString* usernameParameter = [[[Constants getusernameParameter] stringByAppendingString:@"="] stringByAppendingString:username];
+        NSString* passwordParameter = [[[Constants getPasswordParameter] stringByAppendingString:@"="] stringByAppendingString:password];
         NSString* scoreParameter = [[[Constants getScoreParameter] stringByAppendingString:@"="] stringByAppendingString:[NSString stringWithFormat:@"%d", score]];
-        [Utilities sendRequest:[Constants getUpdateUserURL] :scoreParameter :nil];
-//        response = @"";
+        
+        NSString* parameters = [[[[usernameParameter stringByAppendingString:@"&"] stringByAppendingString:passwordParameter] stringByAppendingString:@"&"] stringByAppendingString:scoreParameter];
+        
+        parameters = [parameters stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        
+        [Utilities sendRequest:[Constants getUpdateUserURL] :parameters :nil];
     }
     
     NSString* title = @"Share Score";

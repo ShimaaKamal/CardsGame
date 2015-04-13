@@ -482,6 +482,7 @@
                     <connections>
                         <outlet property="TextScore" destination="peC-ki-u3O" id="coI-Ar-qM3"/>
                         <outlet property="Timer" destination="ULP-Ty-QK0" id="x8V-Jn-APt"/>
+                        <outlet property="label_highestScore" destination="seD-VO-bwd" id="e8g-Zt-ycU"/>
                         <outlet property="switch_sound" destination="a95-RQ-cv7" id="NT6-K8-4RR"/>
                         <outletCollection property="cardsButton" destination="MWc-oN-cbN" id="Nsg-ya-SS8"/>
                         <outletCollection property="cardsButton" destination="217-xg-cSv" id="YBm-mo-VmO"/>
