@@ -40,6 +40,10 @@
 		D1DBB2451AD400F500FFDCE8 /* Users.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1DBB2441AD400F500FFDCE8 /* Users.plist */; };
 		D1DC03791ADB331C00AC666A /* wood_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1DC03781ADB331C00AC666A /* wood_icon.jpg */; };
 		D1DC037B1ADB37A800AC666A /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DC037A1ADB37A800AC666A /* button.png */; };
+		D1E555881ADB9CFA0049CD48 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D1E555871ADB9CFA0049CD48 /* back.png */; };
+		D1E5558A1ADB9D040049CD48 /* synch.png in Resources */ = {isa = PBXBuildFile; fileRef = D1E555891ADB9D040049CD48 /* synch.png */; };
+		D1E5558C1ADBAE420049CD48 /* no.png in Resources */ = {isa = PBXBuildFile; fileRef = D1E5558B1ADBAE420049CD48 /* no.png */; };
+		D1E5558E1ADBAE490049CD48 /* yes.png in Resources */ = {isa = PBXBuildFile; fileRef = D1E5558D1ADBAE490049CD48 /* yes.png */; };
 		D1E6754C1AC949EC002E79C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754B1AC949EC002E79C0 /* Foundation.framework */; };
 		D1E6754E1AC949EC002E79C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */; };
 		D1E675501AC949EC002E79C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E6754F1AC949EC002E79C0 /* UIKit.framework */; };
@@ -110,6 +114,10 @@
 		D1DBB2441AD400F500FFDCE8 /* Users.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Users.plist; sourceTree = "<group>"; };
 		D1DC03781ADB331C00AC666A /* wood_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood_icon.jpg; sourceTree = "<group>"; };
 		D1DC037A1ADB37A800AC666A /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		D1E555871ADB9CFA0049CD48 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		D1E555891ADB9D040049CD48 /* synch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = synch.png; sourceTree = "<group>"; };
+		D1E5558B1ADBAE420049CD48 /* no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no.png; sourceTree = "<group>"; };
+		D1E5558D1ADBAE490049CD48 /* yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes.png; sourceTree = "<group>"; };
 		D1E675481AC949EC002E79C0 /* CardsGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardsGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1E6754B1AC949EC002E79C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1E6754D1AC949EC002E79C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -223,6 +231,10 @@
 		D1E675521AC949EC002E79C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D1E5558D1ADBAE490049CD48 /* yes.png */,
+				D1E5558B1ADBAE420049CD48 /* no.png */,
+				D1E555891ADB9D040049CD48 /* synch.png */,
+				D1E555871ADB9CFA0049CD48 /* back.png */,
 				D1DC037A1ADB37A800AC666A /* button.png */,
 				D1DC03781ADB331C00AC666A /* wood_icon.jpg */,
 				D1977B0B1ADB25C400B9CE9D /* Untitled-2-01.png */,
@@ -349,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1977B0E1ADB25D200B9CE9D /* Untitled-3-01.png in Resources */,
+				D1E5558A1ADB9D040049CD48 /* synch.png in Resources */,
 				D1977B0C1ADB25C400B9CE9D /* Untitled-2-01.png in Resources */,
 				D1E675621AC949EC002E79C0 /* Main_iPad.storyboard in Resources */,
 				D1977AFA1ADB0E2200B9CE9D /* background_icon.png in Resources */,
@@ -356,9 +369,12 @@
 				D1977AF81ADB00C800B9CE9D /* Help.png in Resources */,
 				D1E675671AC949EC002E79C0 /* Images.xcassets in Resources */,
 				D1977AF41ADAE5D400B9CE9D /* Button.mp3 in Resources */,
+				D1E555881ADB9CFA0049CD48 /* back.png in Resources */,
 				D197BB531AD6CE7600010CF3 /* default.jpg in Resources */,
+				D1E5558E1ADBAE490049CD48 /* yes.png in Resources */,
 				D1977B081ADB15C500B9CE9D /* pic3.png in Resources */,
 				D197BB711AD6CFC600010CF3 /* Help_mark_query_question_support_talk-128.png in Resources */,
+				D1E5558C1ADBAE420049CD48 /* no.png in Resources */,
 				D197BB7D1AD6D1A900010CF3 /* sound.mp3 in Resources */,
 				D1977B101ADB25D900B9CE9D /* Untitled-4-01.png in Resources */,
 				D1977B001ADB158700B9CE9D /* pic1.png in Resources */,

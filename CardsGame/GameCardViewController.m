@@ -1,17 +1,12 @@
-//
-//  GameCardViewController.m
-//  CardsGame
-//
-//  Created by JETS on 4/4/15.
-//  Copyright (c) 2015 JETS. All rights reserved.
-//
-
 #import "GameCardViewController.h"
 #import "Card.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Constants.h"
+#import "Utilities.h"
 
+static const int SCORE_MATCH_UNIT = 10000;
+static const int SCORE_REDUCE_UNIT = 10;
 
 @interface GameCardViewController ()
 
@@ -23,6 +18,7 @@
 @synthesize cardsButton;
 @synthesize Timer;
 @synthesize TextScore;
+@synthesize label_highestScore;
 @synthesize switch_sound;
 
 BOOL soundEnabled;
@@ -33,8 +29,10 @@ NSMutableArray *CardArray;
 UIButton *FirstButton;
 int indexRequired;
 int score = 0;
+int highestScore;
 BOOL soundEnabled;
 SystemSoundID soundId;
+//NSString* response;
 
 int hours;
 int minutes;
@@ -48,49 +46,52 @@ int seconds;
     return self;
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    //make userdefault
+    // Set sound
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     soundEnabled = [defaults boolForKey:[Constants getSoundEnabledKey]];
     [switch_sound setOn:soundEnabled];
     
-    //set background image
+    // Set background image
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
-    
+    backgroundImage.alpha = 0.75;
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
-    
-    //initialize array of images
+    // Initialize array of images
     CardArray = [[NSMutableArray alloc] init];
     Images = [[NSMutableArray alloc] initWithObjects:@"pic1.png", @"pic2.png",@"pic3.png",@"pic4.png",@"pic5.png",@"pic6.png",@"pic7.png",@"pic8.png",@"pic1.png",@"pic2.png",@"pic3.png",@"pic4.png",@"pic5.png",@"pic6.png",@"pic7.png",@"pic8.png",nil];
     
-    //make buttons rounded
+    // Make buttons rounded
     for(UIButton *button in cardsButton ){
         button.layer.borderWidth = 0.8f;
         button.layer.borderColor =[ [UIColor grayColor]CGColor];
         button.layer.cornerRadius = 10;
         printf("%ld",(long)[button tag]);
     }
-    //initialize timer
+    // Initialize timer
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(count) userInfo:nil repeats:YES];
     [Timer setText:@"00:00:00"];
     
-    //generate random images
-    [self listFill];
+    // Initialize Highest Score
+    highestScore = [defaults integerForKey:[Constants getScoreKey]];
+    label_highestScore.text = [NSString stringWithFormat:@"%d", highestScore];
     
+    // Generate random images
+    [self listFill];
 }
 
 -(void)listFill{
     listToShow = [[NSMutableArray alloc] init];
     
     for(int i =0 ; i < 16;i++ ){
-        
         [listToShow addObject:self.drawRandomCard];
-        
     }
     for(int i =0; i<16;i++ ){
         Card *card = [[Card alloc] init];
@@ -110,21 +111,13 @@ int seconds;
     unsigned index = arc4random() % Images.count;
     //printf("\n index = %lu",(unsigned long)index);
     if(Images.count){
-        
         image =[Images objectAtIndex:index];
         [Images removeObjectAtIndex:index];
         //printf("\ninside draw");
         //printf("%s",[[Images objectAtIndex:index] UTF8String]);
-        
     }
     //printf("inside draw");
-    
     return image;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) count {
@@ -184,16 +177,18 @@ int seconds;
         if(card.faceUp && card.playble && index != [buttonPressed tag]){
             printf("%s",[[[CardArray objectAtIndex:[buttonPressed tag]] imageName] UTF8String]);
             printf("%s",[[card imageName] UTF8String]);
+            
             if([[card imageName] isEqualToString:[[CardArray objectAtIndex:[buttonPressed tag]] imageName]] ){
                 //printf("hello from other world");
                 [[CardArray objectAtIndex:[buttonPressed tag]] setPlayble:NO];
                 [[CardArray objectAtIndex:index] setPlayble:NO];
                 [buttonPressed setEnabled:NO];
                 [[cardsButton objectAtIndex:index] setEnabled:NO];
-                int timeInSeconds = hours * 60 *60 + minutes * 60+ seconds;
+                
+                int timeInSeconds = hours * 60 * 60 + minutes * 60 + seconds;
                 printf("time in second = %d",timeInSeconds);
-                score = (score + 100) ;
-                NSString *ScoreValue = [[NSString alloc] initWithFormat:@"%d",score - (score / timeInSeconds) ];
+                score = score + SCORE_MATCH_UNIT - SCORE_REDUCE_UNIT * timeInSeconds;
+                NSString *ScoreValue = [[NSString alloc] initWithFormat:@"%d", score];
                 
                 printf("\n %s",[[[CardArray objectAtIndex:index] imageName] UTF8String]);
                 [TextScore setText:ScoreValue];
@@ -205,11 +200,7 @@ int seconds;
                 
                 indexRequired = index;
                 FirstButton = buttonPressed ;
-                [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                 target:self
-                                               selector:@selector(Rotate)
-                                               userInfo:nil
-                                                repeats:NO];
+                [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(Rotate) userInfo:nil repeats:NO];
             }
         }
         index++;
@@ -220,6 +211,23 @@ int seconds;
     [UIView transitionWithView:[cardsButton objectAtIndex:indexRequired] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:indexRequired] setImage:[UIImage imageNamed:@"Help.png"] forState:UIControlStateNormal];}   completion:nil];
     
     [UIView transitionWithView:FirstButton  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[FirstButton setImage:[UIImage imageNamed:@"Help.png"] forState:UIControlStateNormal];}   completion:nil];
+}
+
+-(void) finish {
+    // If the current score is higher than the highest score, save this score in the user defaults
+    if (score > highestScore) {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger:score forKey:[Constants getScoreKey]];
+        
+        NSString* scoreParameter = [[[Constants getScoreParameter] stringByAppendingString:@"="] stringByAppendingString:[NSString stringWithFormat:@"%d", score]];
+        [Utilities sendRequest:[Constants getUpdateUserURL] :scoreParameter :nil];
+//        response = @"";
+    }
+    
+    NSString* title = @"Share Score";
+    NSString* message = @"7ot ya A7mady el dialog bta3 el share hena :D";
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"Share", @"Cancel", nil];
+    [alert show];
 }
 
 -(IBAction)changeSwitch:(id)sender{
@@ -233,6 +241,19 @@ int seconds;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:soundEnabled forKey:[Constants getSoundEnabledKey]];
     [defaults synchronize];
+}
+
+-(void)back:(id)sender {
+    NSString* title = @"Exit";
+    NSString* message = @"Are you sure you want to exit";
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"YES", @"NO", nil];
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end
