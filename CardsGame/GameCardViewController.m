@@ -36,12 +36,11 @@ int score = 0;
 BOOL soundEnabled;
 SystemSoundID soundId;
 
-
 int hours;
 int minutes;
 int seconds;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -49,8 +48,7 @@ int seconds;
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -64,19 +62,19 @@ int seconds;
     
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
-   
+    
     
     //initialize array of images
     CardArray = [[NSMutableArray alloc] init];
     Images = [[NSMutableArray alloc] initWithObjects:@"pic1.png", @"pic2.png",@"pic3.png",@"pic4.png",@"pic5.png",@"pic6.png",@"pic7.png",@"pic8.png",@"pic1.png",@"pic2.png",@"pic3.png",@"pic4.png",@"pic5.png",@"pic6.png",@"pic7.png",@"pic8.png",nil];
     
     //make buttons rounded
-        for(UIButton *button in cardsButton ){
+    for(UIButton *button in cardsButton ){
         button.layer.borderWidth = 0.8f;
         button.layer.borderColor =[ [UIColor grayColor]CGColor];
         button.layer.cornerRadius = 10;
         printf("%ld",(long)[button tag]);
-        }
+    }
     //initialize timer
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(count) userInfo:nil repeats:YES];
     [Timer setText:@"00:00:00"];
@@ -86,12 +84,8 @@ int seconds;
     
 }
 
-
 -(void)listFill{
     listToShow = [[NSMutableArray alloc] init];
-    
-    
-    
     
     for(int i =0 ; i < 16;i++ ){
         
@@ -106,7 +100,6 @@ int seconds;
         [card setPlayble:YES];
         [CardArray addObject:card];
     }
-    
     
     printf("list to show count = %lu",(unsigned long)listToShow.count);
 }
@@ -126,16 +119,14 @@ int seconds;
     }
     //printf("inside draw");
     
-    
-    
     return image;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(void) count {
     if (seconds == 59) {
         seconds = 0;
@@ -166,30 +157,22 @@ int seconds;
     Timer.text = [[[[hoursString stringByAppendingString:@":"] stringByAppendingString:minutesString] stringByAppendingString:@":"] stringByAppendingString:secondsString];
 }
 
-
 - (IBAction)FlipCard:(UIButton *)sender {
-    
     if(sender.isEnabled){
-        
-        
         if(soundEnabled){
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Button" ofType:@"mp3"];
-        NSURL *soundUrl = [NSURL fileURLWithPath:path];
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &soundId);
-        AudioServicesPlaySystemSound(soundId);
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"Button" ofType:@"mp3"];
+            NSURL *soundUrl = [NSURL fileURLWithPath:path];
+            AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &soundId);
+            AudioServicesPlaySystemSound(soundId);
         }
         
-
         [UIView transitionWithView:sender duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[sender setImage:[UIImage imageNamed:[listToShow objectAtIndex:[sender tag]]] forState:UIControlStateNormal];}   completion:nil];
         [[CardArray objectAtIndex:[sender tag]] setFaceUp:YES];
         
         //sound
-  
         
         [self matchUp:sender];
-        
     }
-    
 }
 
 -(void) matchUp:(UIButton *) buttonPressed{
@@ -210,20 +193,16 @@ int seconds;
                 int timeInSeconds = hours * 60 *60 + minutes * 60+ seconds;
                 printf("time in second = %d",timeInSeconds);
                 score = (score + 100) ;
-                 NSString *ScoreValue = [[NSString alloc] initWithFormat:@"%d",score - (score / timeInSeconds) ];
+                NSString *ScoreValue = [[NSString alloc] initWithFormat:@"%d",score - (score / timeInSeconds) ];
                 
                 printf("\n %s",[[[CardArray objectAtIndex:index] imageName] UTF8String]);
                 [TextScore setText:ScoreValue];
-            }
-            else{
-                
+            } else {
                 [[CardArray objectAtIndex:[buttonPressed tag]] setFaceUp:NO];
                 [[CardArray objectAtIndex:index] setFaceUp:NO];
                 printf("\n inside else");
                 printf("\n %s",[[[CardArray objectAtIndex:index] imageName] UTF8String]);
-
-
-            
+                
                 indexRequired = index;
                 FirstButton = buttonPressed ;
                 [NSTimer scheduledTimerWithTimeInterval:1.0
@@ -231,32 +210,29 @@ int seconds;
                                                selector:@selector(Rotate)
                                                userInfo:nil
                                                 repeats:NO];
-               
-                
-                
-              
             }
         }
-        
         index++;
     }
 }
+
 -(void)Rotate{
     [UIView transitionWithView:[cardsButton objectAtIndex:indexRequired] duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[[cardsButton objectAtIndex:indexRequired] setImage:[UIImage imageNamed:@"Help.png"] forState:UIControlStateNormal];}   completion:nil];
     
     [UIView transitionWithView:FirstButton  duration:0.5 options:(UIViewAnimationOptionTransitionFlipFromLeft) animations:^{[FirstButton setImage:[UIImage imageNamed:@"Help.png"] forState:UIControlStateNormal];}   completion:nil];
-    
 }
+
 -(IBAction)changeSwitch:(id)sender{
     soundEnabled = [sender isOn];
-    if(![sender isOn]){
+    if(!soundEnabled){
         AudioServicesRemoveSystemSoundCompletion(soundId);
-    }
-    else{
+    } else {
         AudioServicesPlayAlertSound(soundId);
-
     }
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:soundEnabled forKey:[Constants getSoundEnabledKey]];
+    [defaults synchronize];
 }
 
 @end

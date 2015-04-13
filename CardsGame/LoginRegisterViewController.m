@@ -151,6 +151,10 @@ NSString* response;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+    
     UIImage* image = [UIImage imageNamed:@"logo.png"];
     [imageView setImage:image];
 }

@@ -134,6 +134,10 @@ NSString* response;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* name = [defaults stringForKey:[Constants getNameKey]];
     
