@@ -28,8 +28,6 @@
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
-   
-    
     UIImage* image = [UIImage imageNamed:@"Logo3-02.png"];
     [imageView setImage:image];
 }
@@ -38,17 +36,9 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)startGame:(id)sender {
-    
-}
-
 -(void)editProfile:(id)sender {
     EditProfileViewController* editProfileViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
     [self presentViewController:editProfileViewController animated:YES completion:nil];
-}
-
--(void)settings:(id)sender {
-    
 }
 
 -(void)signOut:(id)sender {

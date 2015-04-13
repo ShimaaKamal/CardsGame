@@ -19,7 +19,7 @@ static const int SCORE_REDUCE_UNIT = 10;
 @synthesize Timer;
 @synthesize TextScore;
 @synthesize label_highestScore;
-@synthesize switch_sound;
+@synthesize button_sound;
 
 BOOL soundEnabled;
 
@@ -27,6 +27,9 @@ NSMutableArray *Images;
 NSMutableArray *listToShow;
 NSMutableArray *CardArray;
 UIButton *FirstButton;
+
+UIImage* image_soundOn;
+UIImage* image_soundOff;
 
 int indexRequired;
 int score;
@@ -57,6 +60,9 @@ int seconds;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    image_soundOff = [UIImage imageNamed:@"sound_off.png"];
+    image_soundOn = [UIImage imageNamed:@"sound_on.png"];
+    
     indexRequired = 0;
     score = 0;
     numberOfMatches = 0;
@@ -64,7 +70,11 @@ int seconds;
     // Set sound
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     soundEnabled = [defaults boolForKey:[Constants getSoundEnabledKey]];
-    [switch_sound setOn:soundEnabled];
+    if (soundEnabled) {
+        [button_sound setBackgroundImage:image_soundOn forState:UIControlStateNormal];
+    } else {
+        [button_sound setBackgroundImage:image_soundOff forState:UIControlStateNormal];
+    }
     
     // Set background image
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
@@ -267,12 +277,14 @@ int seconds;
     [alert show];
 }
 
--(IBAction)changeSwitch:(id)sender{
-    soundEnabled = [sender isOn];
-    if(!soundEnabled){
-        AudioServicesRemoveSystemSoundCompletion(soundId);
-    } else {
+-(void)soundToggled:(id)sender {
+    soundEnabled = !soundEnabled;
+    if (soundEnabled) {
+        [button_sound setBackgroundImage:image_soundOn forState:UIControlStateNormal];
         AudioServicesPlayAlertSound(soundId);
+    } else {
+        [button_sound setBackgroundImage:image_soundOff forState:UIControlStateNormal];
+        AudioServicesRemoveSystemSoundCompletion(soundId);
     }
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];

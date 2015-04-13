@@ -131,10 +131,7 @@ NSString* response;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    textField_name.layer.borderWidth = 2;
     textField_name.layer.cornerRadius = 10;
-    
-    imageView.layer.borderWidth = 5;
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
     [self.view addSubview:backgroundImage];

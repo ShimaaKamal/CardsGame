@@ -51,6 +51,8 @@
 		D1D140911AD546B4004C7041 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D140901AD546B4004C7041 /* StartViewController.m */; };
 		D1D313A01ACAE2300006C24E /* LoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */; };
 		D1D313A31ACAE78F0006C24E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D313A21ACAE78F0006C24E /* Constants.m */; };
+		D1DB0F561ADC381D0036FA03 /* sound_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DB0F541ADC381D0036FA03 /* sound_off.png */; };
+		D1DB0F571ADC381D0036FA03 /* sound_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DB0F551ADC381D0036FA03 /* sound_on.png */; };
 		D1DB5B461ACEE27200B26978 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB5B451ACEE27200B26978 /* RankingViewController.m */; };
 		D1DB5B491ACEF04200B26978 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB5B481ACEF04200B26978 /* HomeViewController.m */; };
 		D1DBB2451AD400F500FFDCE8 /* Users.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1DBB2441AD400F500FFDCE8 /* Users.plist */; };
@@ -139,6 +141,8 @@
 		D1D3139F1ACAE2300006C24E /* LoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRegisterViewController.m; sourceTree = "<group>"; };
 		D1D313A11ACAE78F0006C24E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D1D313A21ACAE78F0006C24E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		D1DB0F541ADC381D0036FA03 /* sound_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound_off.png; sourceTree = "<group>"; };
+		D1DB0F551ADC381D0036FA03 /* sound_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound_on.png; sourceTree = "<group>"; };
 		D1DB5B441ACEE27200B26978 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankingViewController.h; path = ../RankingViewController.h; sourceTree = "<group>"; };
 		D1DB5B451ACEE27200B26978 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankingViewController.m; path = ../RankingViewController.m; sourceTree = "<group>"; };
 		D1DB5B471ACEF04200B26978 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 		D1E675521AC949EC002E79C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D1DB0F541ADC381D0036FA03 /* sound_off.png */,
+				D1DB0F551ADC381D0036FA03 /* sound_on.png */,
 				D1B2E53F1ADC011A00C864D4 /* help-icon.jpg */,
 				D1B2E53B1ADBFBC300C864D4 /* Logo2-02.png */,
 				D1B2E5471ADC0B3800C864D4 /* EditProfile-02.png */,
@@ -410,6 +416,7 @@
 			files = (
 				D1977B0E1ADB25D200B9CE9D /* Untitled-3-01.png in Resources */,
 				D1B2E53C1ADBFBC300C864D4 /* Logo2-02.png in Resources */,
+				D1DB0F561ADC381D0036FA03 /* sound_off.png in Resources */,
 				D1B2E54C1ADC109900C864D4 /* name-03.png in Resources */,
 				D1E5558A1ADB9D040049CD48 /* synch.png in Resources */,
 				D1B3664C1ADBDB040032D957 /* 2.jpg in Resources */,
@@ -449,6 +456,7 @@
 				D1B2E54A1ADC109200C864D4 /* change-05.png in Resources */,
 				D1DC037B1ADB37A800AC666A /* button.png in Resources */,
 				D1DBB2451AD400F500FFDCE8 /* Users.plist in Resources */,
+				D1DB0F571ADC381D0036FA03 /* sound_on.png in Resources */,
 				D1B2E53E1ADBFD9D00C864D4 /* Logo3-02.png in Resources */,
 				D1B2E5401ADC011A00C864D4 /* help-icon.jpg in Resources */,
 				D1977B121ADB25DF00B9CE9D /* Untitled-5-01.png in Resources */,
