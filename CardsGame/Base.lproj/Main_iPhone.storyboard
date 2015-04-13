@@ -553,11 +553,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled-7-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="SoM-cB-q9k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="7.png" translatesAutoresizingMaskIntoConstraints="NO" id="SoM-cB-q9k">
                                 <rect key="frame" x="0.0" y="-8" width="320" height="576"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled-2-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="DJQ-Je-Me8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="DJQ-Je-Me8">
                                 <rect key="frame" x="-7" y="0.0" width="327" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -704,9 +704,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1.png" width="1317" height="1852"/>
+        <image name="7.png" width="1317" height="1852"/>
         <image name="Help_mark_query_question_support_talk-128.png" width="128" height="128"/>
-        <image name="Untitled-2-01.png" width="1333" height="2367"/>
-        <image name="Untitled-7-01.png" width="1333" height="2367"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
