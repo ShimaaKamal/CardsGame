@@ -33,19 +33,6 @@
     [self performSelector:@selector(delay1) withObject:nil afterDelay:6];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-//    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-//    NSString* username = [defaults stringForKey:[Constants getUsernameKey]];
-//    
-//    if (username == nil) {
-//        LoginRegisterViewController* loginRegisterViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegisterViewController"];
-//        [self presentViewController:loginRegisterViewController animated:NO completion:nil];
-//    } else {
-//        HomeViewController* homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//        [self presentViewController:homeViewController animated:NO completion:nil];
-//    }
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -70,15 +57,26 @@
     [self performSelector:@selector(delay3) withObject:nil afterDelay:3];
 }
 
-
 -(void)delay3{
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:3];
     [loadView setAlpha:0];
     [UIView commitAnimations];
     [animationView startAnimating];
-    LoginRegisterViewController* loginRegisterViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegisterViewController"];
-    [self presentViewController:loginRegisterViewController animated:YES completion:nil];
+    [self finish];
+}
+
+-(void)finish {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* username = [defaults stringForKey:[Constants getUsernameKey]];
+    
+    if (username == nil) {
+        LoginRegisterViewController* loginRegisterViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginRegisterViewController"];
+        [self presentViewController:loginRegisterViewController animated:NO completion:nil];
+    } else {
+        HomeViewController* homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        [self presentViewController:homeViewController animated:NO completion:nil];
+    }
     
 }
 

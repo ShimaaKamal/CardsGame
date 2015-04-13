@@ -44,9 +44,6 @@ NSString* response;
     NSString* passwordParameter = [[[Constants getPasswordParameter] stringByAppendingString:@"="] stringByAppendingString:password];
     NSString* nameParameter = [[[Constants getNameParameter] stringByAppendingString:@"="] stringByAppendingString:textField_name.text];
     
-    //    NSString* score = [NSString stringWithFormat:@"%d", [defaults integerForKey:[Constants getScoreKey]]];
-    //    NSString* scoreParameter = [[[Constants getScoreParameter] stringByAppendingString:@"="] stringByAppendingString:score];
-    
     NSString* parameters = [[[[usernameParameter stringByAppendingString:@"&"] stringByAppendingString:passwordParameter] stringByAppendingString:@"&"] stringByAppendingString:nameParameter];
     
     parameters = [parameters stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -133,6 +130,12 @@ NSString* response;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    textField_name.layer.cornerRadius = 10;
+    
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* name = [defaults stringForKey:[Constants getNameKey]];

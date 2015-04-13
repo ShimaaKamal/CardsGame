@@ -5,9 +5,6 @@
 #import "LoginRegisterViewController.h"
 
 @interface HomeViewController () {
-    NSMutableData *responseData;
-    NSMutableArray *theNames;
-    NSMutableArray *theScores;
 }
 
 @end
@@ -16,8 +13,7 @@
 
 @synthesize imageView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -25,18 +21,14 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-//    responseData = [[NSMutableData alloc]init];
-//    theNames = [NSMutableArray array];
-//    theScores = [NSMutableArray array];
-//    NSURL *url = [[NSURL alloc ]initWithString:[Constants getTopUsersURL]];
-//    NSURLRequest *request =[NSURLRequest requestWithURL:url];
-//    NSURLConnection *con = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     
-    UIImage* image = [UIImage imageNamed:@"logo.png"];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+    
+    UIImage* image = [UIImage imageNamed:@"Logo3-02.png"];
     [imageView setImage:image];
 }
 
@@ -44,17 +36,9 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)startGame:(id)sender {
-    
-}
-
 -(void)editProfile:(id)sender {
     EditProfileViewController* editProfileViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
     [self presentViewController:editProfileViewController animated:YES completion:nil];
-}
-
--(void)settings:(id)sender {
-    
 }
 
 -(void)signOut:(id)sender {
@@ -71,34 +55,31 @@
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    [responseData appendData:data];
+//    [responseData appendData:data];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    NSString* newStr = [NSString stringWithUTF8String:[responseData bytes]];
-    printf("%s\n",[newStr UTF8String]);
-    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
-    NSArray *topUsersArray = [parsedObject  objectForKey:@"Top Users"];
-    
-    for (int i = 0 ; i < [topUsersArray count]; i++) {
-        NSDictionary *dictObject  = [topUsersArray objectAtIndex:i];
-        [theNames addObject:[dictObject objectForKey:@"name"]];
-        [theScores addObject:[NSString stringWithFormat:@"%@",[dictObject objectForKey:@"score"] ]];
-       // printf("%s\n" , [[dictObject objectForKey:@"name"] UTF8String]);
-       //printf("%s\n",[[NSString stringWithFormat:@"%@",[dictObject objectForKey:@"score"] ]UTF8String]);
-   }
-
+//    NSString* newStr = [NSString stringWithUTF8String:[responseData bytes]];
+//    printf("%s\n",[newStr UTF8String]);
+//    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
+//    NSArray *topUsersArray = [parsedObject  objectForKey:@"Top Users"];
+//    
+//    for (int i = 0 ; i < [topUsersArray count]; i++) {
+//        NSDictionary *dictObject  = [topUsersArray objectAtIndex:i];
+//        [theNames addObject:[dictObject objectForKey:@"name"]];
+//        [theScores addObject:[NSString stringWithFormat:@"%@",[dictObject objectForKey:@"score"] ]];
+//       // printf("%s\n" , [[dictObject objectForKey:@"name"] UTF8String]);
+//       //printf("%s\n",[[NSString stringWithFormat:@"%@",[dictObject objectForKey:@"score"] ]UTF8String]);
+//   }
 }
 
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier  isEqualToString:@"ranksSegue"]) {
-        
-        RankingViewController *ranksView = segue.destinationViewController;
-        
-        ranksView.namesF = theNames;
-        ranksView.scoresF = theScores;
-    }
+//    if ([segue.identifier  isEqualToString:@"ranksSegue"]) {
+//        RankingViewController *ranksView = segue.destinationViewController;
+//        ranksView.namesF = theNames;
+//        ranksView.scoresF = theScores;
+//    }
 }
 
 @end

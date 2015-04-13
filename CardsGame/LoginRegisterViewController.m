@@ -57,7 +57,7 @@ NSString* response;
 }
 
 -(NSString *)addParameters:(BOOL)login {
-    NSString* usernameParameter = [[[Constants getusernameParameter] stringByAppendingString:@"="] stringByAppendingString:textField_username.text];
+    NSString* usernameParameter = [[[Constants getusernameParameter] stringByAppendingString:@"="] stringByAppendingString:[textField_username.text lowercaseString]];
     NSString* passwordParameter = [[[Constants getPasswordParameter] stringByAppendingString:@"="] stringByAppendingString:textField_password.text];
     
     NSString* parameters = [[usernameParameter stringByAppendingString:@"&"] stringByAppendingString:passwordParameter];
@@ -151,8 +151,12 @@ NSString* response;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage* image = [UIImage imageNamed:@"logo.png"];
-    [imageView setImage:image];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+//    
+//    UIImage* image = [UIImage imageNamed:@"logo.png"];
+//    [imageView setImage:image];
 }
 
 - (void)didReceiveMemoryWarning {
