@@ -26,12 +26,12 @@ UIImage* defaultImage;
 {
     [super viewDidLoad];
     
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
+    //UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood_icon.jpg"]];
 //    [self.view addSubview:backgroundImage];
 //    [self.view sendSubviewToBack:backgroundImage];
     
-    [backgroundImage setFrame:table.frame];
-    table.backgroundView = backgroundImage;
+    //[backgroundImage setFrame:table.frame];
+    //table.backgroundView = backgroundImage;
     
     defaultImage = [UIImage imageNamed:@"default.jpg"];
     
@@ -106,6 +106,11 @@ UIImage* defaultImage;
     cell.imageView.image = image;
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wooden_color.jpeg"]];
+    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wooden_color.jpeg"]];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {

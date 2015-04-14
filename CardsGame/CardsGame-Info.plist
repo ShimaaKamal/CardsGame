@@ -2,19 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>FacebookDisplayName</key>
+	<string>CardsGame</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1814523285440311</string>
+				<string>fb1591267357799534</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>1814523285440311
-1814523285440311
-</string>
+	<string>1591267357799534</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

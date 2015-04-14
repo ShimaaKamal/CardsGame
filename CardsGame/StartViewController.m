@@ -19,13 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     animationView.animationImages = [NSArray arrayWithObjects:
-                                     [UIImage imageNamed:@"1.png"],
-                                     [UIImage imageNamed:@"2.png"],
-                                     [UIImage imageNamed:@"3.png"],
-                                     [UIImage imageNamed:@"4.png"],
-                                     [UIImage imageNamed:@"5.png"],
-                                     [UIImage imageNamed:@"6.png"],
-                                     [UIImage imageNamed:@"7.png"],
+                                     [UIImage imageNamed:@"splash1.png"],
+                                     [UIImage imageNamed:@"splash2.png"],
+                                     [UIImage imageNamed:@"splash3.png"],
+                                     [UIImage imageNamed:@"splash4.png"],
+                                     [UIImage imageNamed:@"splash5.png"],
+                                     [UIImage imageNamed:@"splash6.png"],
+                                     [UIImage imageNamed:@"splash7.png"],
                                      nil];
     [animationView setAnimationRepeatCount:1];
     animationView.animationDuration = 6 ;

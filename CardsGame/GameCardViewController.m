@@ -34,6 +34,7 @@ UIButton *FirstButton;
 
 UIImage* image_soundOn;
 UIImage* image_soundOff;
+FBSDKShareButton *button;
 
 int indexRequired;
 int score;
@@ -63,6 +64,9 @@ int seconds;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+
     
     image_soundOff = [UIImage imageNamed:@"sound_off.png"];
     image_soundOn = [UIImage imageNamed:@"sound_on.png"];
@@ -275,18 +279,33 @@ int seconds;
         [Utilities sendRequest:[Constants getUpdateUserURL] :parameters :nil];
     }
     
+    // Facebook Share
+    CGPoint buttonPosition = CGPointMake((self.view.frame.size.width)/2, self.view.frame.size.height - 25);
     
-    NSString* title = @"Share Score";
-    NSString* message = @"7ot ya A7mady el dialog bta3 el share hena :D";
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles: @"Cancel", nil];
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    content.contentTitle = @"My score in match it is ..........";
-    content.contentDescription =@"match it is a funny and easy game to play try it";
-    content.contentURL = [NSURL URLWithString:@"https://www.facebook.com"];
-    FBSDKShareButton *button = [[FBSDKShareButton alloc] init];
+    content.contentTitle = @"My score in crads game is ";
+    content.contentDescription = [NSString stringWithFormat:@"%d", score];
+    content.contentURL = [NSURL URLWithString:@"https://www.matchit.com"];
+    content.imageURL = [NSURL URLWithString:@"http://s3images.coroflot.com/user_files/individual_files/133904_AhWF7O5sfiUu5C4BO3PnvdPpw.png"];
+    
+    button = [[FBSDKShareButton alloc] init];
     button.shareContent = content;
-    [alert addSubview:button];
-    [alert show];
+    button.center = buttonPosition;
+    [self.view addSubview:button];
+    
+//    NSString* title = @"Share Score";
+//    NSString* message = @"Share your score";
+//    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles: @"Cancel", nil];
+//    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+//    content.contentTitle = @"My score in match it is ..........";
+//    content.contentDescription =@"match it is a funny and easy game to play try it";
+//    content.contentURL = [NSURL URLWithString:@"https://www.facebook.com"];
+//    FBSDKShareButton *button = [[FBSDKShareButton alloc] init];
+//    button.shareContent = content;
+//    button.hidden = false;
+//    [alert addSubview:button];
+//    [alert show];
+    
 }
 
 -(void)soundToggled:(id)sender {
