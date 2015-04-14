@@ -547,11 +547,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled-7-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="SoM-cB-q9k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="7.png" translatesAutoresizingMaskIntoConstraints="NO" id="SoM-cB-q9k">
                                 <rect key="frame" x="0.0" y="-8" width="320" height="576"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Untitled-2-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="DJQ-Je-Me8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="DJQ-Je-Me8">
                                 <rect key="frame" x="-7" y="0.0" width="327" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -641,7 +641,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Isu-hK-dd8"/>
                     <connections>
@@ -712,20 +712,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="6-01.png" width="800" height="800"/>
-        <image name="EditProfile-02.png" width="370" height="331"/>
-        <image name="Match.png" width="299" height="214"/>
-        <image name="Untitled-2-01.png" width="1333" height="2367"/>
-        <image name="Untitled-7-01.png" width="1333" height="2367"/>
-        <image name="back.png" width="256" height="256"/>
-        <image name="change-05.png" width="362" height="169"/>
-        <image name="green-globe-help-27263.jpg" width="256" height="256"/>
-        <image name="name-03.png" width="316" height="156"/>
-        <image name="no.png" width="512" height="512"/>
-        <image name="sound_on.png" width="256" height="256"/>
-        <image name="synch.png" width="256" height="256"/>
-        <image name="wood_icon.jpg" width="445" height="590"/>
-        <image name="yes.png" width="512" height="512"/>
+        <image name="1.png" width="1317" height="1852"/>
+        <image name="7.png" width="1317" height="1852"/>
+        <image name="Help_mark_query_question_support_talk-128.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

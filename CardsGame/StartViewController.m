@@ -19,17 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     animationView.animationImages = [NSArray arrayWithObjects:
-                                     [UIImage imageNamed:@"Untitled-2-01.png"],
-                                     [UIImage imageNamed:@"Untitled-3-01.png"],
-                                     [UIImage imageNamed:@"Untitled-4-01.png"],
-                                     [UIImage imageNamed:@"Untitled-5-01.png"],
-                                     [UIImage imageNamed:@"Untitled-6-01.png"],
-                                     [UIImage imageNamed:@"Untitled-7-01.png"],
+                                     [UIImage imageNamed:@"1.png"],
+                                     [UIImage imageNamed:@"2.png"],
+                                     [UIImage imageNamed:@"3.png"],
+                                     [UIImage imageNamed:@"4.png"],
+                                     [UIImage imageNamed:@"5.png"],
+                                     [UIImage imageNamed:@"6.png"],
+                                     [UIImage imageNamed:@"7.png"],
                                      nil];
     [animationView setAnimationRepeatCount:1];
-    animationView.animationDuration = 3 ;
+    animationView.animationDuration = 6 ;
     [animationView startAnimating];
-    [self performSelector:@selector(delay1) withObject:nil afterDelay:3];
+    [self performSelector:@selector(delay1) withObject:nil afterDelay:6];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,27 +39,27 @@
 -(void)delay1{
     
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationDuration:3];
     [animationView setAlpha:0];
     [UIView commitAnimations];
     [animationView startAnimating];
-    [self performSelector:@selector(delay2) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(delay2) withObject:nil afterDelay:3];
     
     
 }
 -(void)delay2{
     
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationDuration:2];
     [loadView setAlpha:1];
     [UIView commitAnimations];
     [animationView startAnimating];
-    [self performSelector:@selector(delay3) withObject:nil afterDelay:1.5];
+    [self performSelector:@selector(delay3) withObject:nil afterDelay:3];
 }
 
 -(void)delay3{
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationDuration:3];
     [loadView setAlpha:0];
     [UIView commitAnimations];
     [animationView startAnimating];
