@@ -4,6 +4,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Constants.h"
 #import "Utilities.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+
 
 static const int SCORE_MATCH_UNIT = 10000;
 static const int SCORE_REDUCE_UNIT = 10;
@@ -271,9 +275,17 @@ int seconds;
         [Utilities sendRequest:[Constants getUpdateUserURL] :parameters :nil];
     }
     
+    
     NSString* title = @"Share Score";
     NSString* message = @"7ot ya A7mady el dialog bta3 el share hena :D";
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"Share", @"Cancel", nil];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles: @"Cancel", nil];
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentTitle = @"My score in match it is ..........";
+    content.contentDescription =@"match it is a funny and easy game to play try it";
+    content.contentURL = [NSURL URLWithString:@"https://www.facebook.com"];
+    FBSDKShareButton *button = [[FBSDKShareButton alloc] init];
+    button.shareContent = content;
+    [alert addSubview:button];
     [alert show];
 }
 
