@@ -628,7 +628,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M58-L2-YT6">
-                                <rect key="frame" x="48" y="373" width="220" height="40"/>
+                                <rect key="frame" x="50" y="373" width="220" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -641,7 +641,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Isu-hK-dd8"/>
                     <connections>
@@ -712,9 +711,20 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.png" width="1317" height="1852"/>
-        <image name="7.png" width="1317" height="1852"/>
-        <image name="Help_mark_query_question_support_talk-128.png" width="128" height="128"/>
+        <image name="1.png" width="445" height="590"/>
+        <image name="6-01.png" width="800" height="800"/>
+        <image name="7.png" width="800" height="800"/>
+        <image name="EditProfile-02.png" width="370" height="331"/>
+        <image name="Match.png" width="299" height="214"/>
+        <image name="back.png" width="256" height="256"/>
+        <image name="change-05.png" width="362" height="169"/>
+        <image name="green-globe-help-27263.jpg" width="256" height="256"/>
+        <image name="name-03.png" width="316" height="156"/>
+        <image name="no.png" width="512" height="512"/>
+        <image name="sound_on.png" width="256" height="256"/>
+        <image name="synch.png" width="256" height="256"/>
+        <image name="wood_icon.jpg" width="445" height="590"/>
+        <image name="yes.png" width="512" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
