@@ -42,6 +42,7 @@ int highestScore;
 int numberOfMatches;
 BOOL soundEnabled;
 bool flag = YES;
+BOOL firstFlip;
 
 SystemSoundID soundId;
 NSTimer* timer;
@@ -65,8 +66,7 @@ int seconds;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-
+    firstFlip = true;
     
     image_soundOff = [UIImage imageNamed:@"sound_off.png"];
     image_soundOn = [UIImage imageNamed:@"sound_on.png"];
@@ -105,7 +105,6 @@ int seconds;
     hours = 0;
     minutes = 0;
     seconds = 0;
-    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(count) userInfo:nil repeats:YES];
     [Timer setText:@"00:00:00"];
     
     // Initialize Highest Score
@@ -184,6 +183,11 @@ int seconds;
 }
 
 - (IBAction)FlipCard:(UIButton *)sender {
+    if (firstFlip) {
+        firstFlip = false;
+        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(count) userInfo:nil repeats:YES];
+    }
+    
     if(sender.isEnabled && flag == YES){
         if(soundEnabled){
             NSString *path = [[NSBundle mainBundle] pathForResource:@"Button" ofType:@"mp3"];

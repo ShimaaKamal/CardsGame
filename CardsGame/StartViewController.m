@@ -2,6 +2,9 @@
 #import "LoginRegisterViewController.h"
 #import "HomeViewController.h"
 #import "Constants.h"
+#import <AudioToolbox/AudioToolbox.h>
+
+SystemSoundID backgroundSoundId;
 
 @interface StartViewController ()
 
@@ -18,6 +21,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Background Sound
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"bg_sound" ofType:@"mp3"];
+    NSURL *soundUrl = [NSURL fileURLWithPath:path];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &backgroundSoundId);
+    AudioServicesPlaySystemSound(backgroundSoundId);
+    
     animationView.animationImages = [NSArray arrayWithObjects:
                                      [UIImage imageNamed:@"splash1.png"],
                                      [UIImage imageNamed:@"splash2.png"],
