@@ -7,10 +7,8 @@
 static const int USERNAME_MIN_LENGTH = 4;
 static const int PASSWORD_MIN_LENGTH = 6;
 
-static const NSString* ERROR_USERNAME_MIN_LENGTH = @"Minimum length for username is 4 characters";
-static const NSString* ERROR_PASSWORD_MIN_LENGTH = @"Minimum length for password is 6 characters";
-
-static const NSString* REGISTER_TRUE = @"true";
+static const NSString* ERROR_USERNAME_MIN_LENGTH = @"At least 4 characters";
+static const NSString* ERROR_PASSWORD_MIN_LENGTH = @"At least 6 characters";
 
 BOOL isRegistering;
 NSString* response;
@@ -25,7 +23,7 @@ NSString* response;
 
 -(void)login:(id)sender {
     if ([self validate]) {
-        [Utilities sendRequest:[Constants getLoginRegisterURL] :[self addParameters:YES] :self];
+        [Utilities sendRequest:[Constants getLoginURL] :[self addParameters] :self];
         isRegistering = NO;
         response = @"";
     }
@@ -33,7 +31,7 @@ NSString* response;
 
 -(void)register:(id)sender {
     if ([self validate]) {
-        [Utilities sendRequest:[Constants getLoginRegisterURL] :[self addParameters:NO] :self];
+        [Utilities sendRequest:[Constants getRegisterURL] :[self addParameters] :self];
         isRegistering = YES;
         response = @"";
     }
@@ -56,16 +54,11 @@ NSString* response;
     return valid;
 }
 
--(NSString *)addParameters:(BOOL)login {
+-(NSString *)addParameters {
     NSString* usernameParameter = [[[Constants getusernameParameter] stringByAppendingString:@"="] stringByAppendingString:[textField_username.text lowercaseString]];
     NSString* passwordParameter = [[[Constants getPasswordParameter] stringByAppendingString:@"="] stringByAppendingString:textField_password.text];
     
     NSString* parameters = [[usernameParameter stringByAppendingString:@"&"] stringByAppendingString:passwordParameter];
-    
-    if (!login) {
-        NSString* registerParameter = [[[Constants getRegisterParameter] stringByAppendingString:@"="] stringByAppendingString:REGISTER_TRUE];
-        parameters = [[parameters stringByAppendingString:@"&"] stringByAppendingString:registerParameter];
-    }
     
     parameters = [parameters stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     

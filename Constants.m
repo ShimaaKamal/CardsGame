@@ -10,23 +10,22 @@
 
 static const NSString* PREFIX = @"http://";
 //static const NSString* IP = @"10.145.10.71";
-static const NSString* IP = @"10.145.18.51";
-//static const NSString* IP = @"192.168.1.5";
+static const NSString* IP = @"192.168.1.6";
 static const NSString* PORT = @"8084";
 
 static const NSString* APP_NAME = @"Game";
 
 static const NSString* URL;
 
-static const NSString* LOGIN_REGISTER_SERVLET = @"LoginRegisterServlet";
-static const NSString* TOP_USER_SERVLET = @"TopUsersServlet";
-static const NSString* UPDATE_USER_SERVLET = @"UpdateUserServlet";
+static const NSString* LOGIN_SERVICE = @"login";
+static const NSString* REGISTER_SERVICE = @"register";
+static const NSString* TOP_SCORES_SERVICE = @"topScores";
+static const NSString* UPDATE_USER_SERVICE = @"update";
 
 static const NSString* PARAMETER_USERNAME = @"username";
 static const NSString* PARAMETER_PASSWORD = @"password";
 static const NSString* PARAMETER_NAME = @"name";
 static const NSString* PARAMETER_SCORE = @"score";
-static const NSString* PARAMETER_REGISTER = @"register";
 static const NSString* PARAMETER_IMAGE_WIDTH = @"imageWidth";
 static const NSString* PARAMETER_IMAGE = @"image";
 
@@ -54,29 +53,35 @@ static const NSString* PROPERTY_TOP_USERS = @"Top Users";
 @implementation Constants
 
 +(void)initialize {
-    URL = [[[[PREFIX stringByAppendingString:IP] stringByAppendingString:@":"] stringByAppendingString:PORT] stringByAppendingPathComponent:APP_NAME];
+    URL = [[[[[PREFIX stringByAppendingString:IP] stringByAppendingString:@":"] stringByAppendingString:PORT] stringByAppendingPathComponent:APP_NAME] stringByAppendingPathComponent:@"CardsGame/Users"];
     
-    URL_LOGIN_REGISTER_SERVLET = [URL stringByAppendingPathComponent:LOGIN_REGISTER_SERVLET];
+    URL_LOGIN_SERVICE = [URL stringByAppendingPathComponent:LOGIN_SERVICE];
     
-    URL_TOP_USER_SERVLET = [URL stringByAppendingPathComponent:TOP_USER_SERVLET];
+    URL_REGISTER_SERVICE = [URL stringByAppendingPathComponent:REGISTER_SERVICE];
     
-    URL_UPDATE_USER_SERVLET = [URL stringByAppendingPathComponent:UPDATE_USER_SERVLET];
+    URL_TOP_SCORES_SERVICE = [URL stringByAppendingPathComponent:TOP_SCORES_SERVICE];
     
-    printf("%s\n", [URL_LOGIN_REGISTER_SERVLET UTF8String]);
-    printf("%s\n", [URL_TOP_USER_SERVLET UTF8String]);
-    printf("%s\n", [URL_UPDATE_USER_SERVLET UTF8String]);
+    URL_UPDATE_USER_SERVICE = [URL stringByAppendingPathComponent:UPDATE_USER_SERVICE];
+    
+    printf("%s\n", [URL_LOGIN_SERVICE UTF8String]);
+    printf("%s\n", [URL_TOP_SCORES_SERVICE UTF8String]);
+    printf("%s\n", [URL_UPDATE_USER_SERVICE UTF8String]);
 }
 
-+(NSString *)getLoginRegisterURL {
-    return URL_LOGIN_REGISTER_SERVLET;
++(NSString *)getLoginURL {
+    return URL_LOGIN_SERVICE;
 }
 
-+(NSString *)getTopUsersURL {
-    return URL_TOP_USER_SERVLET;
++(NSString *)getRegisterURL {
+    return URL_REGISTER_SERVICE;
+}
+
++(NSString *)getTopScoresURL {
+    return URL_TOP_SCORES_SERVICE;
 }
 
 +(NSString *)getUpdateUserURL {
-    return URL_UPDATE_USER_SERVLET;
+    return URL_UPDATE_USER_SERVICE;
 }
 
 +(NSString *)getusernameParameter {
@@ -94,10 +99,6 @@ static const NSString* PROPERTY_TOP_USERS = @"Top Users";
 
 +(NSString *)getScoreParameter {
     return PARAMETER_SCORE;
-}
-
-+(NSString *)getRegisterParameter {
-    return PARAMETER_REGISTER;
 }
 
 +(NSString *)getImageWidthParameter {

@@ -53,7 +53,7 @@ UIImage* defaultImage;
 }
 
 -(void)updateList:(id)sender {
-    NSURL* url = [NSURL URLWithString:[Constants getTopUsersURL]];
+    NSURL* url = [NSURL URLWithString:[Constants getTopScoresURL]];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connection start];

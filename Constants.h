@@ -8,21 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-static const NSString* URL_LOGIN_REGISTER_SERVLET;
-static const NSString* URL_TOP_USER_SERVLET;
-static const NSString* URL_UPDATE_USER_SERVLET;
+static const NSString* URL_LOGIN_SERVICE;
+static const NSString* URL_REGISTER_SERVICE;
+static const NSString* URL_TOP_SCORES_SERVICE;
+static const NSString* URL_UPDATE_USER_SERVICE;
 
 @interface Constants : NSObject
 
-+(NSString*) getLoginRegisterURL;
-+(NSString*) getTopUsersURL;
++(NSString*) getLoginURL;
++(NSString*) getRegisterURL;
++(NSString*) getTopScoresURL;
 +(NSString*) getUpdateUserURL;
 
 +(NSString*) getusernameParameter;
 +(NSString*) getPasswordParameter;
 +(NSString*) getNameParameter;
 +(NSString*) getScoreParameter;
-+(NSString*) getRegisterParameter;
 +(NSString*) getImageWidthParameter;
 +(NSString*) getImageParameter;
 
